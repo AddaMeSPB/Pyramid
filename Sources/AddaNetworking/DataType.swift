@@ -8,9 +8,9 @@
 import Foundation
 
 public struct AnyEncodable: Encodable {
-    let encodable: Encodable
+    public let encodable: Encodable
 
-    init(_ encodable: Encodable) {
+    public init(_ encodable: Encodable) {
         self.encodable = encodable
     }
 
