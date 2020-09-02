@@ -5,12 +5,33 @@ import Combine
 
 public final class Pyramid {
     public init() {}
-    
-    @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, macCatalyst 13.0, *)
-    public func refreshToken() -> AnyPublisher<Bool, Never> {
+
+     @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, macCatalyst 13.0, *)
+    private func refreshToken() -> AnyPublisher<Bool, Never> {
         // normally you'd have your refresh logic here
-        print(refreshToken)
-        return Just(false).eraseToAnyPublisher()
+        print("refreshToken")
+        
+//         var token = RefreshTokenResponse(accessToken: tok, refreshToken: rtok)
+        
+//         request(
+//             with: RefreshTokenAPI.refresh(token: token),
+//             scheduler: RunLoop.main,
+//             class: RefreshTokenResponse.self
+//         ).sink(receiveCompletion: { completionResponse in
+//             switch completionResponse {
+//             case .failure(let error):
+//                 print(#line, error)
+//                 //print(#line, error.errorDescription.contains("401"))
+                
+//             case .finished:
+//                 break
+//             }
+//         }, receiveValue: { tokenRes in
+//             print(token)
+//             token = tokenRes
+//         })
+        
+        return Just(true).eraseToAnyPublisher()
     }
     
     struct Response<T> {
