@@ -5,9 +5,6 @@ import Combine
 
 public final class Pyramid {
     public init() {}
-    
-    public var tok = ""
-    public var rtok = ""
 
      @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, macCatalyst 13.0, *)
     private func refreshToken() -> AnyPublisher<Bool, Never> {
