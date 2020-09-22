@@ -7,7 +7,7 @@
 
 import Foundation
 
-public enum ErrorManager : Error {
+public enum ErrorManager: Error {
     case parameterEncodingFailed
     case invalidServerResponseWithStatusCode(statusCode: Int)
     case invalidServerResponse
