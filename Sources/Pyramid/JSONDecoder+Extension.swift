@@ -11,7 +11,6 @@ import Foundation
 extension JSONDecoder {
     public static let ISO8601JSONDecoder: JSONDecoder = {
         let decoder = JSONDecoder()
-        decoder.keyDecodingStrategy = .convertFromSnakeCase
         decoder.dateDecodingStrategy = .iso8601
         return decoder
     }()
