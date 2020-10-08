@@ -96,7 +96,7 @@ extension Pyramid {
             //request.httpBody = try? JSONEncoder().encode(encodable)
             
             let encoder = JSONEncoder()
-            encoder.keyEncodingStrategy = .convertToSnakeCase
+            encoder.dateEncodingStrategy = .iso8601
             request.httpBody = try? encoder.encode(encodable)
             
             return request
