@@ -51,7 +51,7 @@ public final class Pyramid {
     }
     
     @discardableResult
-    func request(
+    public func request(
         with api: APIConfiguration,
         urlSession: URLSession = URLSession.shared,
         result: @escaping VoidResultCompletion) -> URLSessionTask {
