@@ -110,7 +110,6 @@
 				C39BEE1224F4FF8300C1A52B /* Pyramid.swift */,
 				C39BEE0F24F4FF8300C1A52B /* URL+GeneralURLQuery.swift */,
 				C39BEE0D24F4FF8300C1A52B /* URLRequest+setupRequest.swift */,
-				C34A494A2542FD5700A7562B /* Response.swift */,
 			);
 			name = Pyramid;
 			sourceTree = "<group>";
@@ -156,6 +155,7 @@
 		OBJ_7 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				C34A494A2542FD5700A7562B /* Response.swift */,
 				C3F6E64F24F4FE1A0050C502 /* Pyramid */,
 			);
 			name = Sources;
