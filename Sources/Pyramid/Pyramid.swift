@@ -13,10 +13,10 @@ protocol RequiresAuth {
     var header: [String: String] { get }
 }
 
+@available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, macCatalyst 13.0, *)
 public final class Pyramid {
     public init() {}
 
-    @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, macCatalyst 13.0, *)
     public func request<D: Decodable, T: Scheduler>(
         with api: APIConfiguration,
         urlSession: URLSession = URLSession.shared,
@@ -92,7 +92,7 @@ public final class Pyramid {
     }
 }
 
-@available(iOS 10.0, *)
+@available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, macCatalyst 13.0, *)
 extension Pyramid {
     func constructURL(with api: APIConfiguration) -> URLRequest {
         switch api.method {
