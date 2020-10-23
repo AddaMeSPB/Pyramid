@@ -8,9 +8,9 @@
 import Foundation
 
 public struct Response {
-  let urlResponse: HTTPURLResponse
-  let data: Data
+  public let urlResponse: HTTPURLResponse
+  public let data: Data
   
-  var statusCode: Int { urlResponse.statusCode }
-  var localizedStatusCodeDescription: String { HTTPURLResponse.localizedString(forStatusCode: statusCode) }
+  public var statusCode: Int { urlResponse.statusCode }
+  public  var localizedStatusCodeDescription: String { HTTPURLResponse.localizedString(forStatusCode: statusCode) }
 }
