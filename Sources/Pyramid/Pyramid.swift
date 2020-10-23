@@ -3,6 +3,8 @@ import Foundation
 import Combine
 #endif
 
+public typealias VoidResultCompletion = (Result<Response, ErrorManager>) -> Void
+
 public struct APIError: Decodable, Error {
     public let statusCode: Int
 }
@@ -13,11 +15,7 @@ protocol RequiresAuth {
 
 public final class Pyramid {
     public init() {}
-    struct Response<T> {
-        let value: T
-        let response: URLResponse
-    }
-    
+
     @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, macCatalyst 13.0, *)
     public func request<D: Decodable, T: Scheduler>(
         with api: APIConfiguration,
@@ -52,8 +50,49 @@ public final class Pyramid {
             }.eraseToAnyPublisher()
     }
     
+    @discardableResult
+    func request(
+        with api: APIConfiguration,
+        urlSession: URLSession = URLSession.shared,
+        result: @escaping VoidResultCompletion) -> URLSessionTask {
+        let urlRequest = constructURL(with: api)
+        let task = urlSession.dataTask(with: urlRequest) { data, response, error in
+            guard error == nil else {
+                let error = ErrorManager.connectionError(error!)
+                
+                result(.failure(error))
+                return
+            }
+            
+            guard let httpResponse = response as? HTTPURLResponse else {
+                let error = ErrorManager.invalidServerResponse
+                result(.failure(error))
+                return
+            }
+            
+            guard httpResponse.isSuccessful else {
+                let error = ErrorManager.invalidServerResponseWithStatusCode(statusCode: httpResponse.statusCode)
+                result(.failure(error))
+                return
+            }
+            
+            guard let data = data else {
+                let error = ErrorManager.missingBodyData
+                result(.failure(error))
+                return
+            }
+            
+            result(.success(Response(urlResponse: httpResponse, data: data)))
+        
+        }
+        
+        task.resume()
+        
+        return task
+    }
 }
 
+@available(iOS 10.0, *)
 extension Pyramid {
     func constructURL(with api: APIConfiguration) -> URLRequest {
         switch api.method {
@@ -65,7 +104,7 @@ extension Pyramid {
             return setupDeleteRequest(with: api)
         }
     }
-
+    
     func setupGetRequest(with api: APIConfiguration) -> URLRequest {
         let url = api.pathAppendedURL
         switch api.dataType {
@@ -80,7 +119,7 @@ extension Pyramid {
             return request
         }
     }
-
+    
     func setupGeneralRequest(with api: APIConfiguration) -> URLRequest {
         let url = api.pathAppendedURL
         var request = URLRequest(url: url)
@@ -104,7 +143,7 @@ extension Pyramid {
             return request
         }
     }
-
+    
     func setupDeleteRequest(with api: APIConfiguration) -> URLRequest {
         let url = api.pathAppendedURL
         switch api.dataType {
