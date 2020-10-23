@@ -21,7 +21,7 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		C34A49252542D37500A7562B /* Responsee.swift in Sources */ = {isa = PBXBuildFile; fileRef = C34A49242542D37500A7562B /* Responsee.swift */; };
+		C34A494B2542FD5700A7562B /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = C34A494A2542FD5700A7562B /* Response.swift */; };
 		C39BEE1624F4FF8400C1A52B /* DataType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39BEE0B24F4FF8200C1A52B /* DataType.swift */; };
 		C39BEE1724F4FF8400C1A52B /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39BEE0C24F4FF8200C1A52B /* HTTPMethod.swift */; };
 		C39BEE1824F4FF8400C1A52B /* URLRequest+setupRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39BEE0D24F4FF8300C1A52B /* URLRequest+setupRequest.swift */; };
@@ -57,7 +57,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		C34A49242542D37500A7562B /* Responsee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Responsee.swift; sourceTree = "<group>"; };
+		C34A494A2542FD5700A7562B /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		C39BEE0B24F4FF8200C1A52B /* DataType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataType.swift; path = Sources/Pyramid/DataType.swift; sourceTree = "<group>"; };
 		C39BEE0C24F4FF8200C1A52B /* HTTPMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HTTPMethod.swift; path = Sources/Pyramid/HTTPMethod.swift; sourceTree = "<group>"; };
 		C39BEE0D24F4FF8300C1A52B /* URLRequest+setupRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "URLRequest+setupRequest.swift"; path = "Sources/Pyramid/URLRequest+setupRequest.swift"; sourceTree = "<group>"; };
@@ -108,9 +108,9 @@
 				C39BEE1024F4FF8300C1A52B /* HttpUrlResponse+IsSuccesful.swift */,
 				C39BEE1124F4FF8300C1A52B /* JSONDecoder+Extension.swift */,
 				C39BEE1224F4FF8300C1A52B /* Pyramid.swift */,
-				C34A49242542D37500A7562B /* Responsee.swift */,
 				C39BEE0F24F4FF8300C1A52B /* URL+GeneralURLQuery.swift */,
 				C39BEE0D24F4FF8300C1A52B /* URLRequest+setupRequest.swift */,
+				C34A494A2542FD5700A7562B /* Response.swift */,
 			);
 			name = Pyramid;
 			sourceTree = "<group>";
@@ -249,7 +249,7 @@
 				C39BEE1624F4FF8400C1A52B /* DataType.swift in Sources */,
 				C39BEE1F24F4FF8400C1A52B /* AuthType.swift in Sources */,
 				C39BEE1B24F4FF8400C1A52B /* HttpUrlResponse+IsSuccesful.swift in Sources */,
-				C34A49252542D37500A7562B /* Responsee.swift in Sources */,
+				C34A494B2542FD5700A7562B /* Response.swift in Sources */,
 				C39BEE1D24F4FF8400C1A52B /* Pyramid.swift in Sources */,
 				C39BEE1824F4FF8400C1A52B /* URLRequest+setupRequest.swift in Sources */,
 				C39BEE1924F4FF8400C1A52B /* APIConfiguration.swift in Sources */,
