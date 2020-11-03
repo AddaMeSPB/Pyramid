@@ -21,7 +21,7 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		C34A494B2542FD5700A7562B /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = C34A494A2542FD5700A7562B /* Response.swift */; };
+		C353CD8C2551483C00FBAD2C /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = C353CD8B2551483C00FBAD2C /* Response.swift */; };
 		C39BEE1624F4FF8400C1A52B /* DataType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39BEE0B24F4FF8200C1A52B /* DataType.swift */; };
 		C39BEE1724F4FF8400C1A52B /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39BEE0C24F4FF8200C1A52B /* HTTPMethod.swift */; };
 		C39BEE1824F4FF8400C1A52B /* URLRequest+setupRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39BEE0D24F4FF8300C1A52B /* URLRequest+setupRequest.swift */; };
@@ -57,7 +57,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		C34A494A2542FD5700A7562B /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
+		C353CD8B2551483C00FBAD2C /* Response.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Response.swift; path = Sources/Pyramid/Response.swift; sourceTree = "<group>"; };
 		C39BEE0B24F4FF8200C1A52B /* DataType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataType.swift; path = Sources/Pyramid/DataType.swift; sourceTree = "<group>"; };
 		C39BEE0C24F4FF8200C1A52B /* HTTPMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HTTPMethod.swift; path = Sources/Pyramid/HTTPMethod.swift; sourceTree = "<group>"; };
 		C39BEE0D24F4FF8300C1A52B /* URLRequest+setupRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "URLRequest+setupRequest.swift"; path = "Sources/Pyramid/URLRequest+setupRequest.swift"; sourceTree = "<group>"; };
@@ -99,6 +99,7 @@
 		C3F6E64F24F4FE1A0050C502 /* Pyramid */ = {
 			isa = PBXGroup;
 			children = (
+				C353CD8B2551483C00FBAD2C /* Response.swift */,
 				C39BEE0E24F4FF8300C1A52B /* APIConfiguration.swift */,
 				C39BEE1424F4FF8300C1A52B /* AuthType.swift */,
 				C39BEE1524F4FF8400C1A52B /* ContentType.swift */,
@@ -155,7 +156,6 @@
 		OBJ_7 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				C34A494A2542FD5700A7562B /* Response.swift */,
 				C3F6E64F24F4FE1A0050C502 /* Pyramid */,
 			);
 			name = Sources;
@@ -249,7 +249,7 @@
 				C39BEE1624F4FF8400C1A52B /* DataType.swift in Sources */,
 				C39BEE1F24F4FF8400C1A52B /* AuthType.swift in Sources */,
 				C39BEE1B24F4FF8400C1A52B /* HttpUrlResponse+IsSuccesful.swift in Sources */,
-				C34A494B2542FD5700A7562B /* Response.swift in Sources */,
+				C353CD8C2551483C00FBAD2C /* Response.swift in Sources */,
 				C39BEE1D24F4FF8400C1A52B /* Pyramid.swift in Sources */,
 				C39BEE1824F4FF8400C1A52B /* URLRequest+setupRequest.swift in Sources */,
 				C39BEE1924F4FF8400C1A52B /* APIConfiguration.swift in Sources */,
