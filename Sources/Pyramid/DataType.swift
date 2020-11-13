@@ -24,4 +24,5 @@ public enum DataType {
     case requestData(data: Data)
     case requestParameters(parameters: [String: Any], encoding: JSONEncoder = JSONEncoder())
     case requestWithEncodable(encodable: AnyEncodable)
+  case requestWithEncodables(encodable: [AnyEncodable])
 }

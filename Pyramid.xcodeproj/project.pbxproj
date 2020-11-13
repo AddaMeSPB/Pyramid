@@ -22,6 +22,7 @@
 
 /* Begin PBXBuildFile section */
 		C353CD8C2551483C00FBAD2C /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = C353CD8B2551483C00FBAD2C /* Response.swift */; };
+		C353CDB52551577100FBAD2C /* Pyramid.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "Pyramid::Pyramid::Product" /* Pyramid.framework */; };
 		C39BEE1624F4FF8400C1A52B /* DataType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39BEE0B24F4FF8200C1A52B /* DataType.swift */; };
 		C39BEE1724F4FF8400C1A52B /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39BEE0C24F4FF8200C1A52B /* HTTPMethod.swift */; };
 		C39BEE1824F4FF8400C1A52B /* URLRequest+setupRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39BEE0D24F4FF8300C1A52B /* URLRequest+setupRequest.swift */; };
@@ -36,7 +37,6 @@
 		OBJ_50 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_6 /* Package.swift */; };
 		OBJ_61 /* PyramidTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_22 /* PyramidTests.swift */; };
 		OBJ_62 /* XCTestManifests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_23 /* XCTestManifests.swift */; };
-		OBJ_64 /* Pyramid.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "Pyramid::Pyramid::Product" /* Pyramid.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,7 +89,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 0;
 			files = (
-				OBJ_64 /* Pyramid.framework in Frameworks */,
+				C353CDB52551577100FBAD2C /* Pyramid.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
