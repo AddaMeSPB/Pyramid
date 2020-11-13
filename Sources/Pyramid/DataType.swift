@@ -15,7 +15,11 @@ public struct AnyEncodable: Encodable {
     }
 
     public func encode(to encoder: Encoder) throws {
-        try self.encodable.encode(to: encoder)
+      do {
+          try self.encodable.encode(to: encoder)
+      } catch {
+          print(error)
+      }
     }
 }
 
@@ -24,5 +28,4 @@ public enum DataType {
     case requestData(data: Data)
     case requestParameters(parameters: [String: Any], encoding: JSONEncoder = JSONEncoder())
     case requestWithEncodable(encodable: AnyEncodable)
-  case requestWithEncodables(encodable: [AnyEncodable])
 }
