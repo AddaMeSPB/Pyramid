@@ -111,10 +111,12 @@ extension Pyramid {
         case .requestParameters(let parameters, _):
             let url = url.generateUrlWithQuery(with: parameters)
             var request = URLRequest(url: url)
+          request.timeoutInterval = 25
             request.setupRequest(with: api)
             return request
         default:
             var request = URLRequest(url: url)
+          request.timeoutInterval = 25
             request.setupRequest(with: api)
             return request
         }
@@ -123,6 +125,7 @@ extension Pyramid {
     func setupGeneralRequest(with api: APIConfiguration) -> URLRequest {
         let url = api.pathAppendedURL
         var request = URLRequest(url: url)
+        request.timeoutInterval = 25
         request.setupRequest(with: api)
         switch api.dataType {
         case .requestParameters(let parameters, _):
@@ -149,16 +152,19 @@ extension Pyramid {
         switch api.dataType {
         case .requestParameters(let parameters, _):
             var request = URLRequest(url: url)
+          request.timeoutInterval = 25
             request.setupRequest(with: api)
             request.httpBody = try? JSONSerialization.data(withJSONObject: parameters, options: .prettyPrinted)
             return request
         case .requestData(let data):
             var request = URLRequest(url: url)
+          request.timeoutInterval = 25
             request.setupRequest(with: api)
             request.httpBody = data
             return request
         case .requestWithEncodable(let encodable):
             var request = URLRequest(url: url)
+          request.timeoutInterval = 25
             request.setupRequest(with: api)
             request.httpBody = try? JSONSerialization.data(withJSONObject: encodable, options: .prettyPrinted)
             return request
