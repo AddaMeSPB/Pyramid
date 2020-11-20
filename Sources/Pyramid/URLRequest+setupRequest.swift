@@ -14,7 +14,6 @@ internal extension URLRequest {
     mutating func setupRequest(with api: APIConfiguration) {
         let contentTypeHeaderName = contentTypeHeader
         allHTTPHeaderFields = api.headers
-        allowsCellularAccess = false
         setValue(api.contentType?.rawValue, forHTTPHeaderField: contentTypeHeaderName)
         setupAuthorization(with: api.authType)
         httpMethod = api.method.rawValue
