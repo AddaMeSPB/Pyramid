@@ -12,11 +12,9 @@ public protocol APIConfiguration {
     var baseURL: URL { get }
     var method: HTTPMethod { get }
     var dataType: DataType { get }
-    var authType: AuthType { get }
     var pathPrefix: String { get }
     var path: String { get }
     var contentType: ContentType? { get }
-    var headers: RequiresAuth? { get }
 }
 
 public extension APIConfiguration {
@@ -25,5 +23,10 @@ public extension APIConfiguration {
         url.appendPathComponent(path)
         return url
     }
+}
+
+public protocol RequiresAuth {
+  var headers: [String: String] { get }
+  var authType: AuthType { get }
 }
 

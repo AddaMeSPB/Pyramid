@@ -11,15 +11,15 @@ internal extension URLRequest {
     private var headerField: String { "Authorization" }
     private var contentTypeHeader: String { "Content-Type" }
 
-  mutating func setupRequest(with api: APIConfiguration) {
+  mutating func setupRequest(with api: APIConfiguration, requiresAuth: RequiresAuth? = nil) {
         let contentTypeHeaderName = contentTypeHeader
-        allHTTPHeaderFields = api.headers?.headers
+        allHTTPHeaderFields = requiresAuth?.headers
         setValue(api.contentType?.rawValue, forHTTPHeaderField: contentTypeHeaderName)
-        setupAuthorization(with: api.authType)
+        setupAuthorization(with: requiresAuth?.authType)
         httpMethod = api.method.rawValue
     }
 
-    private mutating func setupAuthorization(with authType: AuthType) {
+    private mutating func setupAuthorization(with authType: AuthType? = nil ) {
         switch authType {
         case .basic(let username, let password):
             let loginString = String(format: "%@:%@", username, password)
@@ -27,6 +27,7 @@ internal extension URLRequest {
             setValue("Basic \(data.base64EncodedString())", forHTTPHeaderField: headerField)
         case .bearer(let token):
             setValue("Bearer \(token)", forHTTPHeaderField: headerField)
+        case .some(.none): break
         case .none: break
         }
     }
