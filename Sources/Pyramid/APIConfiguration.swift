@@ -26,7 +26,7 @@ public extension APIConfiguration {
 }
 
 public protocol RequiresAuth {
-  var headers: [String: String] { get }
+  var headers: [String: String]? { get }
   var authType: AuthType { get }
 }
 
