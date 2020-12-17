@@ -16,7 +16,6 @@ public protocol APIConfiguration {
     var pathPrefix: String { get }
     var path: String { get }
     var contentType: ContentType? { get }
-    var headers: RequiresAuth? { get }
 }
 
 public extension APIConfiguration {

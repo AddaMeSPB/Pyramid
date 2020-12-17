@@ -11,9 +11,9 @@ internal extension URLRequest {
     private var headerField: String { "Authorization" }
     private var contentTypeHeader: String { "Content-Type" }
 
-  mutating func setupRequest(with api: APIConfiguration) {
+  mutating func setupRequest(with api: APIConfiguration, requestAuth: RequiresAuth?) {
         let contentTypeHeaderName = contentTypeHeader
-        allHTTPHeaderFields = api.headers?.headers
+        allHTTPHeaderFields = requestAuth?.headers
         setValue(api.contentType?.rawValue, forHTTPHeaderField: contentTypeHeaderName)
         setupAuthorization(with: api.authType)
         httpMethod = api.method.rawValue
