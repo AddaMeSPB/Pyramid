@@ -15,12 +15,11 @@ public final class Pyramid {
   
   public func request<D: Decodable, T: Scheduler>(
     with api: APIConfiguration,
-    and requestAuth: RequiresAuth,
     urlSession: URLSession = URLSession.shared,
     jsonDecoder: JSONDecoder = .ISO8601JSONDecoder,
     scheduler: T,
     class type: D.Type) -> AnyPublisher<D, ErrorManager> {
-    let urlRequest = constructURL(with: api, requestAuth: requestAuth)
+    let urlRequest = constructURL(with: api)
     return urlSession.dataTaskPublisher(for: urlRequest)
       .tryCatch { error -> URLSession.DataTaskPublisher in
         guard error.networkUnavailableReason == .constrained else {
@@ -50,10 +49,9 @@ public final class Pyramid {
   @discardableResult
   public func request(
     with api: APIConfiguration,
-    and requestAuth: RequiresAuth,
     urlSession: URLSession = URLSession.shared,
     result: @escaping VoidResultCompletion) -> URLSessionTask {
-    let urlRequest = constructURL(with: api, requestAuth: requestAuth)
+    let urlRequest = constructURL(with: api)
     let task = urlSession.dataTask(with: urlRequest) { data, response, error in
       guard error == nil else {
         let error = ErrorManager.connectionError(error!)
@@ -92,37 +90,37 @@ public final class Pyramid {
 
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, macCatalyst 13.0, *)
 extension Pyramid {
-  func constructURL(with api: APIConfiguration, requestAuth: RequiresAuth) -> URLRequest {
+  func constructURL(with api: APIConfiguration) -> URLRequest {
     switch api.method {
     case .get:
-      return setupGetRequest(with: api, requestAuth: requestAuth)
+      return setupGetRequest(with: api)
     case .put, .patch, .post:
-      return setupGeneralRequest(with: api, requestAuth: requestAuth)
+      return setupGeneralRequest(with: api)
     case .delete:
-      return setupDeleteRequest(with: api, requestAuth: requestAuth)
+      return setupDeleteRequest(with: api)
     }
   }
   
-  func setupGetRequest(with api: APIConfiguration, requestAuth: RequiresAuth) -> URLRequest {
+  func setupGetRequest(with api: APIConfiguration) -> URLRequest {
     let url = api.pathAppendedURL
     switch api.dataType {
     case .requestParameters(let parameters, _):
       let url = url.generateUrlWithQuery(with: parameters)
       var request = URLRequest(url: url)
-      request.setupRequest(with: api, requestAuth: requestAuth)
+      request.setupRequest(with: api)
       return request
     default:
       var request = URLRequest(url: url)
       request.timeoutInterval = 10.0
-      request.setupRequest(with: api, requestAuth: requestAuth)
+      request.setupRequest(with: api)
       return request
     }
   }
   
-  func setupGeneralRequest(with api: APIConfiguration, requestAuth: RequiresAuth) -> URLRequest {
+  func setupGeneralRequest(with api: APIConfiguration) -> URLRequest {
     let url = api.pathAppendedURL
     var request = URLRequest(url: url)
-    request.setupRequest(with: api, requestAuth: requestAuth)
+    request.setupRequest(with: api)
     switch api.dataType {
     case .requestParameters(let parameters, _):
       request.httpBody = try? JSONSerialization.data(withJSONObject: parameters, options: .prettyPrinted)
@@ -143,22 +141,22 @@ extension Pyramid {
     }
   }
   
-  func setupDeleteRequest(with api: APIConfiguration, requestAuth: RequiresAuth) -> URLRequest {
+  func setupDeleteRequest(with api: APIConfiguration) -> URLRequest {
     let url = api.pathAppendedURL
     switch api.dataType {
     case .requestParameters(let parameters, _):
       var request = URLRequest(url: url)
-      request.setupRequest(with: api, requestAuth: requestAuth)
+      request.setupRequest(with: api)
       request.httpBody = try? JSONSerialization.data(withJSONObject: parameters, options: .prettyPrinted)
       return request
     case .requestData(let data):
       var request = URLRequest(url: url)
-      request.setupRequest(with: api, requestAuth: requestAuth)
+      request.setupRequest(with: api)
       request.httpBody = data
       return request
     case .requestWithEncodable(let encodable):
       var request = URLRequest(url: url)
-      request.setupRequest(with: api, requestAuth: requestAuth)
+      request.setupRequest(with: api)
       request.httpBody = try? JSONSerialization.data(withJSONObject: encodable, options: .prettyPrinted)
       return request
     default:
