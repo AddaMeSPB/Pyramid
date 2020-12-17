@@ -5,12 +5,8 @@ import Combine
 
 public typealias VoidResultCompletion = (Result<Response, ErrorManager>) -> Void
 
-public struct APIError: Decodable, Error {
-  public let statusCode: Int
-}
-
-protocol RequiresAuth {
-  var header: [String: String] { get }
+public protocol RequiresAuth {
+  public var header: [String: String] { get }
 }
 
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, macCatalyst 13.0, *)
