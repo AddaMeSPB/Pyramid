@@ -17,6 +17,10 @@ public protocol APIConfiguration: RequiresAuth {
     var contentType: ContentType? { get }
 }
 
+public protocol APIOperation {}
+extension APIOperation where Self: APIConfiguration & RequiresAuth {}
+// extension Array where Element: Comparable {}
+
 public extension APIConfiguration {
     var pathAppendedURL: URL {
         var url = baseURL
@@ -29,4 +33,3 @@ public protocol RequiresAuth {
   var headers: [String: String]? { get }
   var authType: AuthType { get }
 }
-

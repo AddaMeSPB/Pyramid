@@ -3,13 +3,95 @@ import Foundation
 import Combine
 #endif
 
+public struct APIError: Decodable, Error {
+    public let statusCode: Int
+}
+
 public typealias VoidResultCompletion = (Result<Response, ErrorManager>) -> Void
 
+public protocol AuthenticationTokenProvidable: AnyObject {
+  var refreshToken: CurrentValueSubject<RefreshToken?, Never> { get }
+}
+
+public protocol RefreshToken {
+  func refreshToken() -> AnyPublisher<Bool, Never>
+}
 
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, macCatalyst 13.0, *)
 public final class Pyramid {
+  
+//  public var token: Decodable?
+//  private var cancellationToken: Set<AnyCancellable>
+  
   public init() {}
   
+//  @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, macCatalyst 13.0, *)
+//  private func refreshToken<D: Decodable, T: Scheduler>(
+//    with api: APIConfiguration,
+//    urlSession: URLSession = URLSession.shared,
+//    jsonDecoder: JSONDecoder = .ISO8601JSONDecoder,
+//    scheduler: T,
+//    class type: D.Type) -> AnyPublisher<Bool, Never> {
+//           request(
+//               with: api,
+//               scheduler: RunLoop.main,
+//               class: type
+//           ).sink(receiveCompletion: { completionResponse in
+//               switch completionResponse {
+//               case .failure(let error):
+//                   print(#line, error)
+//               case .finished:
+//                   break
+//               }
+//           }, receiveValue: { [self] tokenRes in
+//            token = tokenRes
+//           })
+//           .store(in: &cancellationToken)
+//
+//           return Just(true).eraseToAnyPublisher()
+//  }
+
+  @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, macCatalyst 13.0, *)
+  public func request<D: Decodable, T: Scheduler>(
+    with api: APIConfiguration,
+    and refreshToken: RefreshToken? = nil,
+    urlSession: URLSession = URLSession.shared,
+    jsonDecoder: JSONDecoder = .ISO8601JSONDecoder,
+    scheduler: T,
+    class type: D.Type) -> AnyPublisher<D, Error> {
+    let urlRequest = constructURL(with: api)
+    return urlSession.dataTaskPublisher(for: urlRequest)
+      .tryMap({ result in
+
+        guard let httpResponse = result.response as? HTTPURLResponse else {
+          let apiError = try jsonDecoder.decode(APIError.self, from: result.data)
+          throw apiError
+        }
+
+        if !httpResponse.isSuccessful  {
+          throw ErrorManager.invalidServerResponseWithStatusCode(statusCode: httpResponse.statusCode)
+        }
+
+        return try jsonDecoder.decode(D.self, from: result.data)
+      })
+      .receive(on: scheduler)
+      .tryCatch({ error -> AnyPublisher<D, Error> in
+        guard let apiError = error as? ErrorManager, apiError.errorDescription.contains("401") else {
+          throw error
+        }
+
+        return refreshToken!.refreshToken()
+          .tryMap({ [self] success -> AnyPublisher<D, Error> in
+            print(success)
+            guard success != nil else { throw error }
+            return request(with: api, scheduler: scheduler, class: type)
+          })
+          .switchToLatest()
+          .eraseToAnyPublisher()
+      })
+      .eraseToAnyPublisher()
+  }
+    
   public func request<D: Decodable, T: Scheduler>(
     with api: APIConfiguration,
     urlSession: URLSession = URLSession.shared,
