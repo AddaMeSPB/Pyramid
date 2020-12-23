@@ -51,6 +51,7 @@ extension HTTPURLResponse {
     }
 }
 
+@available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, macCatalyst 13.0, *)
 public extension Publisher where Output == (data: Data, response: URLResponse) {
     func assumeHTTP() -> AnyPublisher<(data: Data, response: HTTPURLResponse), HTTPError> {
         tryMap { (data: Data, response: URLResponse) in
@@ -68,6 +69,7 @@ public extension Publisher where Output == (data: Data, response: URLResponse) {
     }
 }
 
+@available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, macCatalyst 13.0, *)
 public extension Publisher where
     Output == (data: Data, response: HTTPURLResponse),
     Failure == HTTPError {
@@ -101,6 +103,7 @@ public extension Publisher where
   }
 }
 
+@available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, macCatalyst 13.0, *)
 public extension Publisher where Output == Data, Failure == HTTPError {
   func decoding<D: Decodable, Decoder: TopLevelDecoder>(_ type: D.Type, decoder: Decoder)
   -> AnyPublisher<D, HTTPError> where Decoder.Input == Data {
