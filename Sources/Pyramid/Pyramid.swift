@@ -97,7 +97,6 @@ public final class Pyramid {
     
   public func request<D: Decodable, S: Scheduler>(
     with api: APIConfiguration,
-    and refreshToken: RefreshToken,
     urlSession: URLSession = URLSession.shared,
     jsonDecoder: JSONDecoder = .ISO8601JSONDecoder,
     scheduler: S,
