@@ -9,12 +9,15 @@ public struct APIError: Decodable, Error {
 
 public typealias VoidResultCompletion = (Result<Response, ErrorManager>) -> Void
 
+@available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, macCatalyst 13.0, *)
 public protocol AuthenticationTokenProvidable: AnyObject {
   var refreshToken: CurrentValueSubject<RefreshToken?, Never> { get }
 }
 
+@available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, macCatalyst 13.0, *)
 public protocol RefreshToken {
-  func refreshToken() -> AnyPublisher<Bool, Never>
+  func refreshToken<S: Subject, D: Decodable>(using subject: S) where S.Output == D
+  func tokenSubject<D: Decodable>() -> CurrentValueSubject<D, Never>
 }
 
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, macCatalyst 13.0, *)
@@ -51,78 +54,62 @@ public final class Pyramid {
 //           return Just(true).eraseToAnyPublisher()
 //  }
 
-  @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, macCatalyst 13.0, *)
-  public func request<D: Decodable, T: Scheduler>(
-    with api: APIConfiguration,
-    and refreshToken: RefreshToken? = nil,
-    urlSession: URLSession = URLSession.shared,
-    jsonDecoder: JSONDecoder = .ISO8601JSONDecoder,
-    scheduler: T,
-    class type: D.Type) -> AnyPublisher<D, Error> {
-    let urlRequest = constructURL(with: api)
-    return urlSession.dataTaskPublisher(for: urlRequest)
-      .tryMap({ result in
-
-        guard let httpResponse = result.response as? HTTPURLResponse else {
-          let apiError = try jsonDecoder.decode(APIError.self, from: result.data)
-          throw apiError
-        }
-
-        if !httpResponse.isSuccessful  {
-          throw ErrorManager.invalidServerResponseWithStatusCode(statusCode: httpResponse.statusCode)
-        }
-
-        return try jsonDecoder.decode(D.self, from: result.data)
-      })
-      .receive(on: scheduler)
-      .tryCatch({ error -> AnyPublisher<D, Error> in
-        guard let apiError = error as? ErrorManager, apiError.errorDescription.contains("401") else {
-          throw error
-        }
-
-        return refreshToken!.refreshToken()
-          .tryMap({ [self] success -> AnyPublisher<D, Error> in
-            print(success)
-            guard success != nil else { throw error }
-            return request(with: api, scheduler: scheduler, class: type)
-          })
-          .switchToLatest()
-          .eraseToAnyPublisher()
-      })
-      .eraseToAnyPublisher()
-  }
+//  @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, macCatalyst 13.0, *)
+//  public func request<D: Decodable, T: Scheduler>(
+//    with api: APIConfiguration,
+//    and refreshToken: RefreshToken,
+//    urlSession: URLSession = URLSession.shared,
+//    jsonDecoder: JSONDecoder = .ISO8601JSONDecoder,
+//    scheduler: T,
+//    class type: D.Type) -> AnyPublisher<D, ErrorManager> {
+//    let urlRequest = constructURL(with: api)
+//    return urlSession.dataTaskPublisher(for: urlRequest)
+//      .tryMap({ result in
+//
+//        guard let httpResponse = result.response as? HTTPURLResponse else {
+//          let apiError = try jsonDecoder.decode(ErrorManager.self, from: result.data)
+//          throw apiError
+//        }
+//
+//        if !httpResponse.isSuccessful  {
+//          throw ErrorManager.invalidServerResponseWithStatusCode(statusCode: httpResponse.statusCode)
+//        }
+//
+//        return try jsonDecoder.decode(D.self, from: result.data)
+//      })
+//      .receive(on: scheduler)
+//      .tryCatch({ error -> AnyPublisher<D, ErrorManager> in
+//        guard let apiError = error as? ErrorManager, apiError.errorDescription.contains("401") else {
+//          throw error
+//        }
+//
+//        return refreshToken.refreshToken()
+//          .tryMap({ [self] success -> AnyPublisher<D, ErrorManager> in
+//            print(success)
+//            guard success != nil else { throw error }
+//            return request(with: api, scheduler: scheduler, class: type)
+//          })
+//          .switchToLatest()
+//          .eraseToAnyPublisher()
+//      })
+//      .eraseToAnyPublisher()
+//  }
     
-  public func request<D: Decodable, T: Scheduler>(
+  public func request<D: Decodable, S: Scheduler>(
     with api: APIConfiguration,
+    and refreshToken: RefreshToken,
     urlSession: URLSession = URLSession.shared,
     jsonDecoder: JSONDecoder = .ISO8601JSONDecoder,
-    scheduler: T,
-    class type: D.Type) -> AnyPublisher<D, ErrorManager> {
+    scheduler: S,
+    class type: D.Type) -> AnyPublisher<D, HTTPError> {
     let urlRequest = constructURL(with: api)
     return urlSession.dataTaskPublisher(for: urlRequest)
-      .tryCatch { error -> URLSession.DataTaskPublisher in
-        guard error.networkUnavailableReason == .constrained else {
-          throw ErrorManager.connectionError(error)
-        }
-        return urlSession.dataTaskPublisher(for: urlRequest)
-      }
+      .assumeHTTP()
+//      .refreshTokenIfNeeded(refreshToken)
+      .responseData()
+      .decoding(D.self, decoder: jsonDecoder)
       .receive(on: scheduler)
-      .tryMap { data, response -> Data in
-        guard let httpResponse = response as? HTTPURLResponse else {
-          throw ErrorManager.invalidServerResponse
-        }
-        if !httpResponse.isSuccessful  {
-          throw ErrorManager.invalidServerResponseWithStatusCode(statusCode: httpResponse.statusCode)
-        }
-        return data
-      }
-      .decode(type: type.self, decoder: jsonDecoder).mapError { error in
-        if let error = error as? ErrorManager {
-          return error
-        } else {
-          return ErrorManager.decodingError(error)
-        }
-      }.eraseToAnyPublisher()
+      .eraseToAnyPublisher()
   }
   
   @discardableResult
