@@ -43,6 +43,18 @@ public enum HTTPError: Error {
         return false
     }
   }
+  
+  public var description: String {
+      switch self {
+      case .nonHTTPResponse: return "Non-HTTP response received"
+      case .requestFailed(let status): return "Received HTTP \(status)"
+      case .serverError(let status): return "Server Error - \(status)"
+      case .networkError(let error): return "Failed to load the request: \(error)"
+      case .authError(let status): return "Authentication Token is expired: \(status)"
+      case .decodingError(let decError): return "Failed to process response: \(decError)"
+      case .unhandledResponse: return "Server unhandledResponse"
+      }
+  }
 }
 
 extension HTTPURLResponse {
@@ -78,7 +90,9 @@ public extension Publisher where
         tryMap { (data: Data, response: HTTPURLResponse) -> Data in
             switch response.statusCode {
             case 200...299: return data
-            case 401,  403: throw HTTPError.authError(response.statusCode)
+            case 401,  403:
+              // wait code
+              throw HTTPError.authError(response.statusCode)
             case 400...499: throw HTTPError.requestFailed(response.statusCode)
             case 500...599: throw HTTPError.serverError(response.statusCode)
             default:
@@ -88,17 +102,24 @@ public extension Publisher where
         .mapError { $0 as! HTTPError }
         .eraseToAnyPublisher()
     }
-  
-  func refreshTokenIfNeeded(_ refreshToken: RefreshToken) -> AnyPublisher<Data, HTTPError> {
-    // code goes here
-    tryMap { (data: Data, response: HTTPURLResponse) -> Data  in
-      if response.statusCode == 401 || response.statusCode == 403 {
-        return  data //refreshToken
-      } else {
-        throw HTTPError.unhandledResponse("Unhandled HTTP Response Status code: \(response.statusCode)")
-      }
+}
+
+extension Publisher where Output == (data: Data, response: HTTPURLResponse), Failure == HTTPError {
+  func retryLimit(when: @escaping () -> Bool) -> AnyPublisher<(data: Data, response: HTTPURLResponse), HTTPError> {
+    map { (data, response) in
+        if when() {
+            Swift.print("Simulating rate limit HTTP Response...")
+            let newResponse = HTTPURLResponse(
+                url: response.url!,
+                statusCode: 401,
+                httpVersion: nil,
+                headerFields: nil)!
+            return (data: data, response: newResponse)
+        } else {
+            Swift.print("No more errors...")
+            return (data: data, response: response)
+        }
     }
-    .mapError { $0 as! HTTPError }
     .eraseToAnyPublisher()
   }
 }
@@ -118,4 +139,23 @@ public extension Publisher where Output == Data, Failure == HTTPError {
       }
       .eraseToAnyPublisher()
   }
+  
+//  func refreshTokenIfNeeded(_ refreshToken: RefreshToken) -> AnyPublisher<Data, HTTPError> {
+//    // code goes here
+//    tryCatch({ error -> AnyPublisher<Data, HTTPError> in
+//      guard let apiError = error as? HTTPError, apiError.isTimeForRefreshToken else {
+//        throw error
+//      }
+//
+//      return refreshToken.refreshToken()
+//        .tryMap({ success -> AnyPublisher<Daa, HTTPError> in
+//          guard success else { throw error }
+//
+////          return fetchURL(url)
+//        })
+//        .switchToLatest()
+//        .eraseToAnyPublisher()
+//    })
+//    .eraseToAnyPublisher()
+//  }
 }

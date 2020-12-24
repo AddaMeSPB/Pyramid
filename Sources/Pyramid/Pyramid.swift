@@ -18,6 +18,7 @@ public protocol AuthenticationTokenProvidable: AnyObject {
 public protocol RefreshToken {
   func refreshToken<S: Subject, D: Decodable>(using subject: S) where S.Output == D
   func tokenSubject<D: Decodable>() -> CurrentValueSubject<D, Never>
+  func refreshToken() -> AnyPublisher<Bool, Never>
 }
 
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, macCatalyst 13.0, *)
@@ -26,6 +27,7 @@ public final class Pyramid {
 //  public var token: Decodable?
 //  private var cancellationToken: Set<AnyCancellable>
   
+  public var simulatedErrors = 3
   public init() {}
   
 //  @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, macCatalyst 13.0, *)
@@ -105,6 +107,10 @@ public final class Pyramid {
     return urlSession.dataTaskPublisher(for: urlRequest)
       .assumeHTTP()
 //      .refreshTokenIfNeeded(refreshToken)
+      .retryLimit(when: { [unowned self] in
+        simulatedErrors -= 1
+        return simulatedErrors > 0
+      })
       .responseData()
       .decoding(D.self, decoder: jsonDecoder)
       .receive(on: scheduler)
