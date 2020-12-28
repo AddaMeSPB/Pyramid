@@ -115,16 +115,16 @@ public final class Pyramid {
     return urlSession.dataTaskPublisher(for: urlRequest)
       .assumeHTTP()
 //      .refreshTokenIfNeeded(refreshToken)
-      .retryLimit(when: { [unowned self] in
-        simulatedErrors -= 1
-        return simulatedErrors > 0
-      })
-      .map {
-        Just($0).setFailureType(to: HTTPError.self)
-          .delay(for: .seconds(2), scheduler: DispatchQueue.main)
-          .eraseToAnyPublisher()
-      }
-      .switchToLatest()
+//      .retryLimit(when: { [unowned self] in
+//        simulatedErrors -= 1
+//        return simulatedErrors > 0
+//      })
+//      .map {
+//        Just($0).setFailureType(to: HTTPError.self)
+//          .delay(for: .seconds(2), scheduler: DispatchQueue.main)
+//          .eraseToAnyPublisher()
+//      }
+//      .switchToLatest()
       .responseData()
       .decoding(D.self, decoder: jsonDecoder)
       .receive(on: scheduler)
