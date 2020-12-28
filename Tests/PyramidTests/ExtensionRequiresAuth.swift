@@ -1,0 +1,38 @@
+//
+//  ExtensionRequiresAuth.swift
+//  PyramidTests
+//
+//  Created by Saroar Khandoker on 28.12.2020.
+//
+
+import Foundation
+import Pyramid
+
+public var invalidAccessToken = """
+eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdGF0dXMiOjAsImV4cCI6MTYwOTE2MjEyNiwiaWF0IjoxNjA5MTYyMDA2LCJ1c2VySWQiOiI1ZmFiYjA1ZDI0NzBjMTc5MTliM2MwZTIiLCJwaG9uZU51bWJlciI6Iis3OTIxODgyMTIxOSJ9.pwNaHXe_KujEAaM5GcO1Vsnv9pJCNBx8GnAggjOQnKb3DgkCj-nRhlSe3dUZf1gv-s_OfQB0EFVx3C8DviPjoWJKe_XTv4oKxs-keeJfy55uvDF6UZumzSntGggFrcUYYp7bWLuO3RwR-Y7MBGNg23EGmYgOu8pu5KcVKhZSPEY17GnajCnawe1a8dDVhBg_a9rHRZcyfGlljy-PNoHGTNSiA2kNyoXTPYysYT5z3RHlgRiZTDOL5WVvjqC0C3yCRk8iRgn1_l_8M7b_gMzEwhoSQxeaTpp9xwumSFajHCErbTGiqQIW1nxKkAPW8VDGukkIyRWMTZ6rG9waDbBPnw
+"""
+
+public var refreshTokenForInvalidToken = """
+eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmYWJiMDVkMjQ3MGMxNzkxOWIzYzBlMiIsImlhdCI6MTYwOTE2MjAwNiwiZXhwIjoxNjQwNjk4MDA2fQ.MaKcOPQ5bzyHh_LuSNQ_yKGW3Jc-5sYtpPk4_U04D86Nmsa-Alswb2n9b_rs9OscAE4Nsiyo_EYHDd0_VErTpKSqJBZoTIIM0i6KXJ9vN0C1YmrPjMoR-G_JBn4nURq1sHoK2Us9oDc7ayFMYHzh-IN9PZkZnHYUkTj-H_tC28l9PxJcJAagUyn2EqZSzwCmoAtyA6Yu8Oo7UcUfIOJ4cuet2fwGUl6eK8Y4ixQYzlrZfkByhVl7SfBTQck8IJahH0eZgv8CIHau3iGQkLYKhg9jC-415Szxghf0thrMiqsbYYcUNYxqUqPkYqU8K0kGHWWUI14aO6VvH3yoCezkdg
+"""
+
+public let validAccessToken = """
+eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdGF0dXMiOjAsImV4cCI6MTY5NTIyODEwMiwiaWF0IjoxNjA4OTE0NTAyLCJ1c2VySWQiOiI1ZmFiYjA1ZDI0NzBjMTc5MTliM2MwZTIiLCJwaG9uZU51bWJlciI6Iis3OTIxODgyMTIxOSJ9.Q9iP6VihNsDxshTns-hnXP9Ux6k6vhpZTlZ2c7b0hQVVR1wFre-trODMGvYsLJEonRU23P7wJGO3-KLluh-SeOwQK4mUJo4SzKlAUT4aWME3YDDRaNqpkF6HDIBs9OKsG2Fmr-Z_wTy-R2szGP7aD_lJDDvqRVufcYyEMpqjDj9JDk0xsDKsRlv-iePmYbjBMckNhPzNSPauGrL1hyowPavalD96zEyrAuPL26eBzT5EFlOBCe7xjc_Sn6qZVW1j-LKJmHfKLUaaqPJIL43M0KZuOxmzuI1zb2Agf9OPI17sEYCAB6vFK5sd0EiWxlklK--k53Vg7TKBIXJ6xc-O5g
+""" // valid
+
+public let refreshToken =  """
+eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmYWJiMDVkMjQ3MGMxNzkxOWIzYzBlMiIsImlhdCI6MTYwODkxMTc5NCwiZXhwIjoxNjQwNDQ3Nzk0fQ.fdNIXvJ9OtkCZqG07INRbbX8c5uwQTkK6gYDfVV55Kf0ACrgi5bVfhtXetX3kXIU3gR2mUVSjGh2t-QXjtYIdKX4EQSyh9sDOZtMOM0K0O1M85s3nmPFOtDXs67pZfX2G97IUiGNsIyWrAF82Vk7BOC2bYbmiuSw289W4xspXvQGB6Kw7YBLU3zpTW9VxCmzqZ-NyWsmmtfz_EaPa7fQSw9NqUrg6mX8iv2dI8_VUUOBDAyIF6fU9z1cdZZFQb01aNy5Jz7F5oVIKwZ0oJ8x7jBYZGs843F4pNfHEuwyPFb15aQWUue152BLIyJQO4YmLLyFWDs5BfT0Ak9Zh654pQ
+""" // valid
+
+public extension RequiresAuth {
+
+  var headers: [String: String]? {
+    return nil
+  }
+  
+  var authType: AuthType {
+    return .bearer(
+      token: invalidAccessToken // validAccessToken
+    )
+  }
+}

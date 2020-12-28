@@ -6,7 +6,7 @@ import PackageDescription
 let package = Package(
     name: "Pyramid",
     platforms: [
-      .iOS(.v12),
+      .iOS(.v13),
       .macOS(.v10_14),
       .tvOS(.v10),
       .watchOS(.v3)
@@ -27,9 +27,13 @@ let package = Package(
         // Targets can depend on other targets in this package, and on products in packages this package depends on.
         .target(
             name: "Pyramid",
-            dependencies: []),
+            dependencies: [],
+            exclude: ["Info.plist"]
+        ),
         .testTarget(
             name: "PyramidTests",
-            dependencies: ["Pyramid"]),
+            dependencies: ["Pyramid"],
+          exclude: ["Info.plist"]
+        )
     ]
 )

@@ -21,15 +21,15 @@ public enum HTTPError: Error {
         switch self {
         case .decodingError, .unhandledResponse:
             return false
-          
+
         case .authError(let status):
           return ![401, 403].contains(status)
-            
+
         case .requestFailed(let status):
             let timeoutStatus = 408
             let rateLimitStatus = 429
             return [timeoutStatus, rateLimitStatus].contains(status)
-            
+
         case .serverError, .networkError, .nonHTTPResponse:
             return true
         }
@@ -58,13 +58,24 @@ public enum HTTPError: Error {
 }
 
 extension HTTPURLResponse {
+  
+  var isRetriable: Bool {
+    return [408, 429].contains(statusCode)
+  }
     var isSuccessful: Bool {
         return (200..<300).contains(statusCode)
     }
+  
+    public var isTimeForRefreshToken: Bool {
+      return [401, 403].contains(statusCode)
+    }
 }
+
 
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, macCatalyst 13.0, *)
 public extension Publisher where Output == (data: Data, response: URLResponse) {
+  
+  @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, macCatalyst 13.0, *)
     func assumeHTTP() -> AnyPublisher<(data: Data, response: HTTPURLResponse), HTTPError> {
         tryMap { (data: Data, response: URLResponse) in
             guard let http = response as? HTTPURLResponse else { throw HTTPError.nonHTTPResponse }
@@ -86,6 +97,7 @@ public extension Publisher where
     Output == (data: Data, response: HTTPURLResponse),
     Failure == HTTPError {
     
+  @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, macCatalyst 13.0, *)
     func responseData() -> AnyPublisher<Data, HTTPError> {
         tryMap { (data: Data, response: HTTPURLResponse) -> Data in
             switch response.statusCode {
@@ -104,16 +116,39 @@ public extension Publisher where
     }
 }
 
+@available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, macCatalyst 13.0, *)
 extension Publisher where Output == (data: Data, response: HTTPURLResponse), Failure == HTTPError {
+  @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, macCatalyst 13.0, *)
+  
+  //  func refreshTokenIfNeeded(_ refreshToken: RefreshToken) -> AnyPublisher<Data, HTTPError> {
+  //    // code goes here
+  //    tryCatch({ error -> AnyPublisher<Data, HTTPError> in
+  //      guard let apiError = error as? HTTPError, apiError.isTimeForRefreshToken else {
+  //        throw error
+  //      }
+  //
+  //      return refreshToken.refreshToken()
+  //        .tryMap({ success -> AnyPublisher<Daa, HTTPError> in
+  //          guard success else { throw error }
+  //
+  ////          return fetchURL(url)
+  //        })
+  //        .switchToLatest()
+  //        .eraseToAnyPublisher()
+  //    })
+  //    .eraseToAnyPublisher()
+  //  }
   func retryLimit(when: @escaping () -> Bool) -> AnyPublisher<(data: Data, response: HTTPURLResponse), HTTPError> {
     map { (data, response) in
-        if when() {
+    
+      if response.isRetriable || response.isTimeForRefreshToken {
             Swift.print("Simulating rate limit HTTP Response...")
             let newResponse = HTTPURLResponse(
                 url: response.url!,
-                statusCode: 401,
+                statusCode: response.statusCode,
                 httpVersion: nil,
-                headerFields: nil)!
+                headerFields: nil
+            )!
             return (data: data, response: newResponse)
         } else {
             Swift.print("No more errors...")
@@ -122,10 +157,14 @@ extension Publisher where Output == (data: Data, response: HTTPURLResponse), Fai
     }
     .eraseToAnyPublisher()
   }
+  
+  
 }
 
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, macCatalyst 13.0, *)
 public extension Publisher where Output == Data, Failure == HTTPError {
+  
+  @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, macCatalyst 13.0, *)
   func decoding<D: Decodable, Decoder: TopLevelDecoder>(_ type: D.Type, decoder: Decoder)
   -> AnyPublisher<D, HTTPError> where Decoder.Input == Data {
     decode(type: D.self, decoder: decoder)

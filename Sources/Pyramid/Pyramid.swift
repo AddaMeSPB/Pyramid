@@ -3,6 +3,10 @@ import Foundation
 import Combine
 #endif
 
+public struct Prefference {
+  public var isDebuggingEnabled: Bool = false
+}
+
 public struct APIError: Decodable, Error {
     public let statusCode: Int
 }
@@ -21,13 +25,16 @@ public protocol RefreshToken {
   func refreshToken() -> AnyPublisher<Bool, Never>
 }
 
-@available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, macCatalyst 13.0, *)
 public final class Pyramid {
   
 //  public var token: Decodable?
 //  private var cancellationToken: Set<AnyCancellable>
   
+  public static var prefference = Prefference()
+  
   public var simulatedErrors = 3
+  let backgroundQueue: DispatchQueue = DispatchQueue(label: "pyramin\(UUID.init())")
+  
   public init() {}
   
 //  @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, macCatalyst 13.0, *)
@@ -96,7 +103,8 @@ public final class Pyramid {
 //      })
 //      .eraseToAnyPublisher()
 //  }
-    
+  
+  @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, macCatalyst 13.0, *)
   public func request<D: Decodable, S: Scheduler>(
     with api: APIConfiguration,
     urlSession: URLSession = URLSession.shared,
@@ -111,12 +119,80 @@ public final class Pyramid {
         simulatedErrors -= 1
         return simulatedErrors > 0
       })
+      .map {
+        Just($0).setFailureType(to: HTTPError.self)
+          .delay(for: .seconds(2), scheduler: DispatchQueue.main)
+          .eraseToAnyPublisher()
+      }
+      .switchToLatest()
       .responseData()
       .decoding(D.self, decoder: jsonDecoder)
       .receive(on: scheduler)
       .eraseToAnyPublisher()
   }
+
+//  @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, macCatalyst 13.0, *)
+//  public func request<D: Decodable, S: Scheduler>(
+//    with api: APIConfiguration,
+//    urlSession: URLSession = URLSession.shared,
+//    jsonDecoder: JSONDecoder = .ISO8601JSONDecoder,
+//    scheduler: S,
+//    class type: D.Type) -> AnyPublisher<D, HTTPError> {
+//    let urlRequest = constructURL(with: api)
+//
+//    return urlSession.dataTaskPublisher(for: urlRequest)
+//      .assumeHTTP()
+//      .retryLimit(when: { [unowned self] in
+//        simulatedErrors -= 1
+//        return simulatedErrors > 0
+//      })
+//      .responseData()
+//      .decoding(D.self, decoder: jsonDecoder)
+//      .mapError { error in
+//          if error is HTTPError {
+//              return error as! HTTPError
+//          } else {
+//              return HTTPError.networkError(error)
+//          }
+//      }
+//      .catch { (error: HTTPError) -> AnyPublisher<D, HTTPError> in
+//          print("Delaying for error...")
+//          return Fail(error: error)
+//              .delay(for: .seconds(1), scheduler: DispatchQueue.main)
+//              .eraseToAnyPublisher()
+//      }
+//      .subscribe(on: scheduler)
+//      .receive(on: scheduler)
+//      .eraseToAnyPublisher()
+    
+    
+//    return urlSession.dataTaskPublisher(for: urlRequest)
+//      .assumeHTTP()
+////      .refreshTokenIfNeeded(refreshToken)
+//      .retryLimit(when: { [unowned self] in
+//        simulatedErrors -= 1
+//        return simulatedErrors > 0
+//      })
+//      .responseData()
+//      .decoding(D.self, decoder: jsonDecoder)
+//      .mapError { error in
+//          if error is HTTPError {
+//              return error as! HTTPError
+//          } else {
+//              return HTTPError.networkError(error)
+//          }
+//      }
+//      .catch { (error: HTTPError) -> AnyPublisher<D, HTTPError> in
+//          print("Delaying for error...")
+//          return Fail(error: error)
+//              .delay(for: .seconds(1), scheduler: DispatchQueue.main)
+//              .eraseToAnyPublisher()
+//      }
+//      .receive(on: scheduler)
+//      .eraseToAnyPublisher()
+//  }
   
+  @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, macCatalyst 13.0, *)
   @discardableResult
   public func request(
     with api: APIConfiguration,
@@ -159,8 +235,10 @@ public final class Pyramid {
   }
 }
 
-@available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, macCatalyst 13.0, *)
+
 extension Pyramid {
+  
+  @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, macCatalyst 13.0, *)
   func constructURL(with api: APIConfiguration) -> URLRequest {
     switch api.method {
     case .get:
@@ -172,6 +250,7 @@ extension Pyramid {
     }
   }
   
+  @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, macCatalyst 13.0, *)
   func setupGetRequest(with api: APIConfiguration) -> URLRequest {
     let url = api.pathAppendedURL
     switch api.dataType {
@@ -188,6 +267,7 @@ extension Pyramid {
     }
   }
   
+  @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, macCatalyst 13.0, *)
   func setupGeneralRequest(with api: APIConfiguration) -> URLRequest {
     let url = api.pathAppendedURL
     var request = URLRequest(url: url)
@@ -212,6 +292,7 @@ extension Pyramid {
     }
   }
   
+  @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, macCatalyst 13.0, *)
   func setupDeleteRequest(with api: APIConfiguration) -> URLRequest {
     let url = api.pathAppendedURL
     switch api.dataType {

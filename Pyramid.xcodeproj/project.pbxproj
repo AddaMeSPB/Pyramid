@@ -6,22 +6,16 @@
 	objectVersion = 46;
 	objects = {
 
-/* Begin PBXAggregateTarget section */
-		"Pyramid::PyramidPackageTests::ProductTarget" /* PyramidPackageTests */ = {
-			isa = PBXAggregateTarget;
-			buildConfigurationList = OBJ_52 /* Build configuration list for PBXAggregateTarget "PyramidPackageTests" */;
-			buildPhases = (
-			);
-			dependencies = (
-				OBJ_55 /* PBXTargetDependency */,
-			);
-			name = PyramidPackageTests;
-			productName = PyramidPackageTests;
-		};
-/* End PBXAggregateTarget section */
-
 /* Begin PBXBuildFile section */
 		C353CD8C2551483C00FBAD2C /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = C353CD8B2551483C00FBAD2C /* Response.swift */; };
+		C3683B9F2596182A00B28AD2 /* ResponseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3683B9E2596182A00B28AD2 /* ResponseTests.swift */; };
+		C3683BC625963F9B00B28AD2 /* TestEventAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3683BC525963F9B00B28AD2 /* TestEventAPI.swift */; };
+		C3683BCE259644E000B28AD2 /* TestEventAPIHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3683BCD259644E000B28AD2 /* TestEventAPIHandler.swift */; };
+		C3683BD7259649B500B28AD2 /* EventResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3683BD6259649B500B28AD2 /* EventResponse.swift */; };
+		C3683BDD25964A6600B28AD2 /* DataTaskPublisherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3683BDC25964A6600B28AD2 /* DataTaskPublisherTests.swift */; };
+		C3683C0C259A29C300B28AD2 /* TestRefreshTokenAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3683C0B259A29C300B28AD2 /* TestRefreshTokenAPI.swift */; };
+		C3683C11259A2A4000B28AD2 /* ExtensionRequiresAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3683C10259A2A4000B28AD2 /* ExtensionRequiresAuth.swift */; };
+		C3683C23259A2AFD00B28AD2 /* TestRefreshAPIHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3683C21259A2AFD00B28AD2 /* TestRefreshAPIHandler.swift */; };
 		C39BEE1624F4FF8400C1A52B /* DataType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39BEE0B24F4FF8200C1A52B /* DataType.swift */; };
 		C39BEE1724F4FF8400C1A52B /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39BEE0C24F4FF8200C1A52B /* HTTPMethod.swift */; };
 		C39BEE1824F4FF8400C1A52B /* URLRequest+setupRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39BEE0D24F4FF8300C1A52B /* URLRequest+setupRequest.swift */; };
@@ -47,17 +41,18 @@
 			remoteGlobalIDString = "Pyramid::Pyramid";
 			remoteInfo = Pyramid;
 		};
-		C3F6E64E24F4FC380050C502 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = OBJ_1 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = "Pyramid::PyramidTests";
-			remoteInfo = PyramidTests;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		C353CD8B2551483C00FBAD2C /* Response.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Response.swift; path = Sources/Pyramid/Response.swift; sourceTree = "<group>"; };
+		C3683B9E2596182A00B28AD2 /* ResponseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseTests.swift; sourceTree = "<group>"; };
+		C3683BC525963F9B00B28AD2 /* TestEventAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestEventAPI.swift; sourceTree = "<group>"; };
+		C3683BCD259644E000B28AD2 /* TestEventAPIHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestEventAPIHandler.swift; sourceTree = "<group>"; };
+		C3683BD6259649B500B28AD2 /* EventResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventResponse.swift; sourceTree = "<group>"; };
+		C3683BDC25964A6600B28AD2 /* DataTaskPublisherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTaskPublisherTests.swift; sourceTree = "<group>"; };
+		C3683C0B259A29C300B28AD2 /* TestRefreshTokenAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestRefreshTokenAPI.swift; sourceTree = "<group>"; };
+		C3683C10259A2A4000B28AD2 /* ExtensionRequiresAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionRequiresAuth.swift; sourceTree = "<group>"; };
+		C3683C21259A2AFD00B28AD2 /* TestRefreshAPIHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestRefreshAPIHandler.swift; sourceTree = "<group>"; };
 		C39BEE0B24F4FF8200C1A52B /* DataType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataType.swift; path = Sources/Pyramid/DataType.swift; sourceTree = "<group>"; };
 		C39BEE0C24F4FF8200C1A52B /* HTTPMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HTTPMethod.swift; path = Sources/Pyramid/HTTPMethod.swift; sourceTree = "<group>"; };
 		C39BEE0D24F4FF8300C1A52B /* URLRequest+setupRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "URLRequest+setupRequest.swift"; path = "Sources/Pyramid/URLRequest+setupRequest.swift"; sourceTree = "<group>"; };
@@ -74,7 +69,7 @@
 		OBJ_27 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		OBJ_6 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		"Pyramid::Pyramid::Product" /* Pyramid.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pyramid.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		"Pyramid::PyramidTests::Product" /* PyramidTests.xctest */ = {isa = PBXFileReference; lastKnownFileType = file; path = PyramidTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		"Pyramid::PyramidTests::Product" /* PyramidTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = PyramidTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +91,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C3683BD52596499F00B28AD2 /* Response */ = {
+			isa = PBXGroup;
+			children = (
+				C3683BD6259649B500B28AD2 /* EventResponse.swift */,
+			);
+			path = Response;
+			sourceTree = "<group>";
+		};
+		C3683BDB25964A4700B28AD2 /* DataTaskPublisherTests */ = {
+			isa = PBXGroup;
+			children = (
+				C3683BDC25964A6600B28AD2 /* DataTaskPublisherTests.swift */,
+			);
+			path = DataTaskPublisherTests;
+			sourceTree = "<group>";
+		};
 		C3F6E64F24F4FE1A0050C502 /* Pyramid */ = {
 			isa = PBXGroup;
 			children = (
@@ -118,6 +129,8 @@
 		OBJ_20 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				C3683BDB25964A4700B28AD2 /* DataTaskPublisherTests */,
+				C3683BD52596499F00B28AD2 /* Response */,
 				OBJ_21 /* PyramidTests */,
 			);
 			name = Tests;
@@ -127,7 +140,13 @@
 			isa = PBXGroup;
 			children = (
 				OBJ_22 /* PyramidTests.swift */,
+				C3683B9E2596182A00B28AD2 /* ResponseTests.swift */,
 				OBJ_23 /* XCTestManifests.swift */,
+				C3683BC525963F9B00B28AD2 /* TestEventAPI.swift */,
+				C3683C10259A2A4000B28AD2 /* ExtensionRequiresAuth.swift */,
+				C3683C0B259A29C300B28AD2 /* TestRefreshTokenAPI.swift */,
+				C3683BCD259644E000B28AD2 /* TestEventAPIHandler.swift */,
+				C3683C21259A2AFD00B28AD2 /* TestRefreshAPIHandler.swift */,
 			);
 			name = PyramidTests;
 			path = Tests/PyramidTests;
@@ -218,7 +237,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftMigration = 9999;
-				LastUpgradeCheck = 9999;
+				LastUpgradeCheck = 1230;
 			};
 			buildConfigurationList = OBJ_2 /* Build configuration list for PBXProject "Pyramid" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -226,6 +245,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = OBJ_5;
 			productRefGroup = OBJ_24 /* Products */;
@@ -234,7 +254,6 @@
 			targets = (
 				"Pyramid::Pyramid" /* Pyramid */,
 				"Pyramid::SwiftPMPackageDescription" /* PyramidPackageDescription */,
-				"Pyramid::PyramidPackageTests::ProductTarget" /* PyramidPackageTests */,
 				"Pyramid::PyramidTests" /* PyramidTests */,
 			);
 		};
@@ -272,7 +291,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
+				C3683BC625963F9B00B28AD2 /* TestEventAPI.swift in Sources */,
+				C3683BCE259644E000B28AD2 /* TestEventAPIHandler.swift in Sources */,
 				OBJ_61 /* PyramidTests.swift in Sources */,
+				C3683BDD25964A6600B28AD2 /* DataTaskPublisherTests.swift in Sources */,
+				C3683C11259A2A4000B28AD2 /* ExtensionRequiresAuth.swift in Sources */,
+				C3683BD7259649B500B28AD2 /* EventResponse.swift in Sources */,
+				C3683B9F2596182A00B28AD2 /* ResponseTests.swift in Sources */,
+				C3683C23259A2AFD00B28AD2 /* TestRefreshAPIHandler.swift in Sources */,
+				C3683C0C259A29C300B28AD2 /* TestRefreshTokenAPI.swift in Sources */,
 				OBJ_62 /* XCTestManifests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -280,11 +307,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		OBJ_55 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = "Pyramid::PyramidTests" /* PyramidTests */;
-			targetProxy = C3F6E64E24F4FC380050C502 /* PBXContainerItemProxy */;
-		};
 		OBJ_65 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "Pyramid::Pyramid" /* Pyramid */;
@@ -297,17 +319,44 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_NS_ASSERTIONS = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
 					"SWIFT_PACKAGE=1",
 					"DEBUG=1",
 				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_SWIFT_FLAGS = "$(inherited) -DXcode";
@@ -333,7 +382,7 @@
 				INFOPLIST_FILE = Pyramid.xcodeproj/Pyramid_Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MARKETING_VERSION = 0.1.7;
 				OTHER_CFLAGS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
@@ -345,8 +394,8 @@
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
 				SWIFT_VERSION = 5.0;
 				TARGET_NAME = Pyramid;
-				TVOS_DEPLOYMENT_TARGET = 9.0;
-				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+				TVOS_DEPLOYMENT_TARGET = 13.0;
+				WATCHOS_DEPLOYMENT_TARGET = 6.0;
 			};
 			name = Debug;
 		};
@@ -362,7 +411,7 @@
 				INFOPLIST_FILE = Pyramid.xcodeproj/Pyramid_Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MARKETING_VERSION = 0.1.7;
 				OTHER_CFLAGS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
@@ -374,8 +423,8 @@
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
 				SWIFT_VERSION = 5.0;
 				TARGET_NAME = Pyramid;
-				TVOS_DEPLOYMENT_TARGET = 9.0;
-				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+				TVOS_DEPLOYMENT_TARGET = 13.0;
+				WATCHOS_DEPLOYMENT_TARGET = 6.0;
 			};
 			name = Release;
 		};
@@ -383,15 +432,41 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = s;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
 					"SWIFT_PACKAGE=1",
 				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				OTHER_SWIFT_FLAGS = "$(inherited) -DXcode";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -422,65 +497,53 @@
 			};
 			name = Release;
 		};
-		OBJ_53 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-			};
-			name = Debug;
-		};
-		OBJ_54 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-			};
-			name = Release;
-		};
 		OBJ_58 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ENABLE_MODULES = YES;
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
 				);
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = Pyramid.xcodeproj/PyramidTests_Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @loader_path/../Frameworks @loader_path/Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				OTHER_CFLAGS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
 				OTHER_SWIFT_FLAGS = "$(inherited)";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
 				SWIFT_VERSION = 5.0;
 				TARGET_NAME = PyramidTests;
-				TVOS_DEPLOYMENT_TARGET = 9.0;
-				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+				TVOS_DEPLOYMENT_TARGET = 13.0;
+				WATCHOS_DEPLOYMENT_TARGET = 6.0;
 			};
 			name = Debug;
 		};
 		OBJ_59 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ENABLE_MODULES = YES;
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
 				);
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = Pyramid.xcodeproj/PyramidTests_Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @loader_path/../Frameworks @loader_path/Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				OTHER_CFLAGS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
 				OTHER_SWIFT_FLAGS = "$(inherited)";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
 				SWIFT_VERSION = 5.0;
 				TARGET_NAME = PyramidTests;
-				TVOS_DEPLOYMENT_TARGET = 9.0;
-				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+				TVOS_DEPLOYMENT_TARGET = 13.0;
+				WATCHOS_DEPLOYMENT_TARGET = 6.0;
 			};
 			name = Release;
 		};
@@ -510,15 +573,6 @@
 			buildConfigurations = (
 				OBJ_47 /* Debug */,
 				OBJ_48 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		OBJ_52 /* Build configuration list for PBXAggregateTarget "PyramidPackageTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				OBJ_53 /* Debug */,
-				OBJ_54 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
