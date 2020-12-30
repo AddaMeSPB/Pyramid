@@ -68,10 +68,10 @@
 
 /* Begin PBXFileReference section */
 		C353CD8B2551483C00FBAD2C /* Response.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Response.swift; path = Sources/Pyramid/Response.swift; sourceTree = "<group>"; };
-		C3683C62259C9E5E00B28AD2 /* EventResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventResponse.swift; sourceTree = "<group>"; };
+		C3683C62259C9E5E00B28AD2 /* EventResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EventResponse.swift; path = ../Tests/Models/EventResponse.swift; sourceTree = "<group>"; };
 		C3683C6C259CA01200B28AD2 /* HTTPError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HTTPError.swift; path = Sources/Pyramid/HTTPError.swift; sourceTree = "<group>"; };
-		C3683C73259CA06D00B28AD2 /* Extension+HTTPURLResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Extension+HTTPURLResponse.swift"; path = "Sources/Pyramid/Extension+HTTPURLResponse.swift"; sourceTree = "<group>"; };
-		C3683C81259CA0CB00B28AD2 /* Extension+Publisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Extension+Publisher.swift"; path = "Sources/Pyramid/Extension+Publisher.swift"; sourceTree = "<group>"; };
+		C3683C73259CA06D00B28AD2 /* Extension+HTTPURLResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+HTTPURLResponse.swift"; sourceTree = "<group>"; };
+		C3683C81259CA0CB00B28AD2 /* Extension+Publisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Publisher.swift"; sourceTree = "<group>"; };
 		C3683CA0259CA33500B28AD2 /* ResponseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ResponseTests.swift; path = Tests/ResponseTests.swift; sourceTree = "<group>"; };
 		C3683CAE259CA39600B28AD2 /* TestRefreshTokenAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TestRefreshTokenAPI.swift; path = Tests/TestRefreshTokenAPI.swift; sourceTree = "<group>"; };
 		C3683CB4259CA3BD00B28AD2 /* TestEventAPIHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TestEventAPIHandler.swift; path = Tests/TestEventAPIHandler.swift; sourceTree = "<group>"; };
@@ -84,7 +84,7 @@
 		C39BEE0D24F4FF8300C1A52B /* URLRequest+setupRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "URLRequest+setupRequest.swift"; path = "Sources/Pyramid/URLRequest+setupRequest.swift"; sourceTree = "<group>"; };
 		C39BEE0E24F4FF8300C1A52B /* APIConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = APIConfiguration.swift; path = Sources/Pyramid/APIConfiguration.swift; sourceTree = "<group>"; };
 		C39BEE0F24F4FF8300C1A52B /* URL+GeneralURLQuery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "URL+GeneralURLQuery.swift"; path = "Sources/Pyramid/URL+GeneralURLQuery.swift"; sourceTree = "<group>"; };
-		C39BEE1124F4FF8300C1A52B /* JSONDecoder+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "JSONDecoder+Extension.swift"; path = "Sources/Pyramid/JSONDecoder+Extension.swift"; sourceTree = "<group>"; };
+		C39BEE1124F4FF8300C1A52B /* JSONDecoder+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "JSONDecoder+Extension.swift"; sourceTree = "<group>"; };
 		C39BEE1224F4FF8300C1A52B /* Pyramid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Pyramid.swift; path = Sources/Pyramid/Pyramid.swift; sourceTree = "<group>"; };
 		C39BEE1324F4FF8300C1A52B /* ErrorManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ErrorManager.swift; path = Sources/Pyramid/ErrorManager.swift; sourceTree = "<group>"; };
 		C39BEE1424F4FF8300C1A52B /* AuthType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AuthType.swift; path = Sources/Pyramid/AuthType.swift; sourceTree = "<group>"; };
@@ -132,12 +132,20 @@
 			path = DataTaskPublisherTests;
 			sourceTree = "<group>";
 		};
-		C3F6E64F24F4FE1A0050C502 /* Pyramid */ = {
+		C3683D3B259CD1FC00B28AD2 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				C39BEE1124F4FF8300C1A52B /* JSONDecoder+Extension.swift */,
 				C3683C73259CA06D00B28AD2 /* Extension+HTTPURLResponse.swift */,
 				C3683C81259CA0CB00B28AD2 /* Extension+Publisher.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		C3F6E64F24F4FE1A0050C502 /* Pyramid */ = {
+			isa = PBXGroup;
+			children = (
+				C3683D3B259CD1FC00B28AD2 /* Extensions */,
 				C353CD8B2551483C00FBAD2C /* Response.swift */,
 				C39BEE0E24F4FF8300C1A52B /* APIConfiguration.swift */,
 				C39BEE1424F4FF8300C1A52B /* AuthType.swift */,
