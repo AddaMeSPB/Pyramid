@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension HTTPURLResponse {
+public extension HTTPURLResponse {
   
   var isRetriable: Bool {
     return [408, 429].contains(statusCode)
@@ -17,7 +17,7 @@ extension HTTPURLResponse {
     return (200..<300).contains(statusCode)
   }
   
-  public var isTimeForRefreshToken: Bool {
+  var isTimeForRefreshToken: Bool {
     return [401, 403].contains(statusCode)
   }
   

@@ -16,8 +16,10 @@ public enum HTTPError: Error {
     case authError(Int)
     case decodingError(DecodingError)
     case unhandledResponse(String)
-    
-    public var isRetriable: Bool {
+}
+
+public extension HTTPError {
+  var isRetriable: Bool {
         switch self {
         case .decodingError, .unhandledResponse:
             return false
@@ -35,7 +37,7 @@ public enum HTTPError: Error {
         }
     }
   
-  public var isTimeForRefreshToken: Bool {
+  var isTimeForRefreshToken: Bool {
     switch self {
     case .authError(let status):
         return [401, 403].contains(status)
@@ -44,7 +46,7 @@ public enum HTTPError: Error {
     }
   }
   
-  public var description: String {
+  var description: String {
       switch self {
       case .nonHTTPResponse: return "Non-HTTP response received"
       case .requestFailed(let status): return "Received HTTP \(status)"
