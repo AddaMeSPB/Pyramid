@@ -26,6 +26,13 @@
 		C3683C74259CA06D00B28AD2 /* Extension+HTTPURLResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3683C73259CA06D00B28AD2 /* Extension+HTTPURLResponse.swift */; };
 		C3683C82259CA0CB00B28AD2 /* Extension+Publisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3683C81259CA0CB00B28AD2 /* Extension+Publisher.swift */; };
 		C3683C87259CA10A00B28AD2 /* HTTPError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3683C6C259CA01200B28AD2 /* HTTPError.swift */; };
+		C3683CA1259CA33500B28AD2 /* ResponseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3683CA0259CA33500B28AD2 /* ResponseTests.swift */; };
+		C3683CAF259CA39600B28AD2 /* TestEventAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3683CAE259CA39600B28AD2 /* TestEventAPI.swift */; };
+		C3683CB5259CA3BD00B28AD2 /* TestEventAPIHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3683CB4259CA3BD00B28AD2 /* TestEventAPIHandler.swift */; };
+		C3683CBB259CA3E100B28AD2 /* TestRefreshAPIHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3683CBA259CA3E100B28AD2 /* TestRefreshAPIHandler.swift */; };
+		C3683CC7259CA42600B28AD2 /* TestRefreshTokenAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3683CC6259CA42600B28AD2 /* TestRefreshTokenAPI.swift */; };
+		C3683CDE259CA57700B28AD2 /* DataTaskPublisherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3683CDD259CA57700B28AD2 /* DataTaskPublisherTests.swift */; };
+		C3683CE8259CA5F300B28AD2 /* ExtensionRequiresAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3683CE7259CA5F300B28AD2 /* ExtensionRequiresAuth.swift */; };
 		C39BEE1624F4FF8400C1A52B /* DataType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39BEE0B24F4FF8200C1A52B /* DataType.swift */; };
 		C39BEE1724F4FF8400C1A52B /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39BEE0C24F4FF8200C1A52B /* HTTPMethod.swift */; };
 		C39BEE1824F4FF8400C1A52B /* URLRequest+setupRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39BEE0D24F4FF8300C1A52B /* URLRequest+setupRequest.swift */; };
@@ -65,6 +72,13 @@
 		C3683C6C259CA01200B28AD2 /* HTTPError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPError.swift; sourceTree = "<group>"; };
 		C3683C73259CA06D00B28AD2 /* Extension+HTTPURLResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+HTTPURLResponse.swift"; sourceTree = "<group>"; };
 		C3683C81259CA0CB00B28AD2 /* Extension+Publisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Publisher.swift"; sourceTree = "<group>"; };
+		C3683CA0259CA33500B28AD2 /* ResponseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseTests.swift; sourceTree = "<group>"; };
+		C3683CAE259CA39600B28AD2 /* TestEventAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestEventAPI.swift; sourceTree = "<group>"; };
+		C3683CB4259CA3BD00B28AD2 /* TestEventAPIHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestEventAPIHandler.swift; sourceTree = "<group>"; };
+		C3683CBA259CA3E100B28AD2 /* TestRefreshAPIHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestRefreshAPIHandler.swift; sourceTree = "<group>"; };
+		C3683CC6259CA42600B28AD2 /* TestRefreshTokenAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestRefreshTokenAPI.swift; sourceTree = "<group>"; };
+		C3683CDD259CA57700B28AD2 /* DataTaskPublisherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTaskPublisherTests.swift; sourceTree = "<group>"; };
+		C3683CE7259CA5F300B28AD2 /* ExtensionRequiresAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionRequiresAuth.swift; sourceTree = "<group>"; };
 		C39BEE0B24F4FF8200C1A52B /* DataType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataType.swift; path = Sources/Pyramid/DataType.swift; sourceTree = "<group>"; };
 		C39BEE0C24F4FF8200C1A52B /* HTTPMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HTTPMethod.swift; path = Sources/Pyramid/HTTPMethod.swift; sourceTree = "<group>"; };
 		C39BEE0D24F4FF8300C1A52B /* URLRequest+setupRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "URLRequest+setupRequest.swift"; path = "Sources/Pyramid/URLRequest+setupRequest.swift"; sourceTree = "<group>"; };
@@ -120,6 +134,14 @@
 			name = Extension;
 			sourceTree = "<group>";
 		};
+		C3683CDC259CA56500B28AD2 /* DataTaskPublisherTests */ = {
+			isa = PBXGroup;
+			children = (
+				C3683CDD259CA57700B28AD2 /* DataTaskPublisherTests.swift */,
+			);
+			path = DataTaskPublisherTests;
+			sourceTree = "<group>";
+		};
 		C3F6E64F24F4FE1A0050C502 /* Pyramid */ = {
 			isa = PBXGroup;
 			children = (
@@ -142,8 +164,15 @@
 		OBJ_20 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				C3683CDC259CA56500B28AD2 /* DataTaskPublisherTests */,
+				C3683CA0259CA33500B28AD2 /* ResponseTests.swift */,
 				C3683C61259C9E2B00B28AD2 /* Models */,
 				OBJ_21 /* PyramidTests */,
+				C3683CAE259CA39600B28AD2 /* TestEventAPI.swift */,
+				C3683CB4259CA3BD00B28AD2 /* TestEventAPIHandler.swift */,
+				C3683CBA259CA3E100B28AD2 /* TestRefreshAPIHandler.swift */,
+				C3683CC6259CA42600B28AD2 /* TestRefreshTokenAPI.swift */,
+				C3683CE7259CA5F300B28AD2 /* ExtensionRequiresAuth.swift */,
 			);
 			name = Tests;
 			sourceTree = SOURCE_ROOT;
@@ -299,9 +328,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
+				C3683CAF259CA39600B28AD2 /* TestEventAPI.swift in Sources */,
+				C3683CDE259CA57700B28AD2 /* DataTaskPublisherTests.swift in Sources */,
 				C3683C63259C9E5E00B28AD2 /* EventResponse.swift in Sources */,
+				C3683CB5259CA3BD00B28AD2 /* TestEventAPIHandler.swift in Sources */,
+				C3683CBB259CA3E100B28AD2 /* TestRefreshAPIHandler.swift in Sources */,
+				C3683CA1259CA33500B28AD2 /* ResponseTests.swift in Sources */,
 				OBJ_61 /* PyramidTests.swift in Sources */,
+				C3683CC7259CA42600B28AD2 /* TestRefreshTokenAPI.swift in Sources */,
 				OBJ_62 /* XCTestManifests.swift in Sources */,
+				C3683CE8259CA5F300B28AD2 /* ExtensionRequiresAuth.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -526,17 +562,17 @@
 				);
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = Pyramid.xcodeproj/PyramidTests_Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @loader_path/../Frameworks @loader_path/Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				OTHER_CFLAGS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
 				OTHER_SWIFT_FLAGS = "$(inherited)";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
 				SWIFT_VERSION = 5.0;
 				TARGET_NAME = PyramidTests;
-				TVOS_DEPLOYMENT_TARGET = 12.0;
-				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+				TVOS_DEPLOYMENT_TARGET = 13.0;
+				WATCHOS_DEPLOYMENT_TARGET = 6.0;
 			};
 			name = Debug;
 		};
@@ -551,17 +587,17 @@
 				);
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = Pyramid.xcodeproj/PyramidTests_Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @loader_path/../Frameworks @loader_path/Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				OTHER_CFLAGS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
 				OTHER_SWIFT_FLAGS = "$(inherited)";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
 				SWIFT_VERSION = 5.0;
 				TARGET_NAME = PyramidTests;
-				TVOS_DEPLOYMENT_TARGET = 12.0;
-				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+				TVOS_DEPLOYMENT_TARGET = 13.0;
+				WATCHOS_DEPLOYMENT_TARGET = 6.0;
 			};
 			name = Release;
 		};

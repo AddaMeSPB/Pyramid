@@ -20,6 +20,20 @@
                ReferencedContainer = "container:Pyramid.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "Pyramid::PyramidTests"
+               BuildableName = "PyramidTests.xctest"
+               BlueprintName = "PyramidTests"
+               ReferencedContainer = "container:Pyramid.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction

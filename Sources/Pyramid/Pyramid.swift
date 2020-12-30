@@ -28,7 +28,7 @@ public final class Pyramid {
 
     return urlSession.dataTaskPublisher(for: urlRequest)
       .assumeHTTP()
-      .print("retryLimit \(simulatedErrors)")
+      .receive(on: scheduler)
       .retryLimit(when: { [unowned self] in
         simulatedErrors -= 1
         return simulatedErrors > 0
@@ -37,27 +37,27 @@ public final class Pyramid {
       .decoding(D.self, decoder: jsonDecoder)
       .catch { [unowned self] (error: HTTPError) -> AnyPublisher<D, HTTPError> in
 
-        if error.isRetriable {
-          print("Delaying for error...")
-          return Fail(error: error)
-              .delay(for: .seconds(1), scheduler: DispatchQueue.main)
-              .eraseToAnyPublisher()
-        } else if error.isTimeForRefreshToken {
-          Swift.print("Delaying for fetchRefreshTokenSend...")
+        if error.isTimeForRefreshToken {
+          
           let bool = api.fetchRefreshToken()
-          Swift.print(#line, "BOOL \(bool)" )
           simulatedErrors = bool == true ?  0 : simulatedErrors
-
           return Fail(error: error)
               .delay(for: .seconds(2), scheduler: DispatchQueue.main)
               .eraseToAnyPublisher()
+          
+        } else if error.isRetriable {
+          
+          return Fail(error: error)
+              .delay(for: .seconds(1), scheduler: DispatchQueue.main)
+              .eraseToAnyPublisher()
+          
         } else {
-          Swift.print("without Delay no error ..")
+          
           return Fail(error: error)
               .eraseToAnyPublisher()
+          
         }
       }
-      .receive(on: scheduler)
       .eraseToAnyPublisher()
   }
   
