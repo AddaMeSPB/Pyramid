@@ -7,7 +7,7 @@
 
 import Foundation
 
-public extension HTTPURLResponse {
+extension HTTPURLResponse {
   
   var isRetriable: Bool {
     return [408, 429].contains(statusCode)
