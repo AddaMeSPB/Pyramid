@@ -5,51 +5,63 @@ import Combine
 
 public typealias VoidResultCompletion = (Result<Response, ErrorManager>) -> Void
 
-public struct APIError: Decodable, Error {
-  public let statusCode: Int
-}
-
-protocol RequiresAuth {
-  var header: [String: String] { get }
+public struct Prefference {
+  public var isDebuggingEnabled: Bool = false
 }
 
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, macCatalyst 13.0, *)
 public final class Pyramid {
+  
+  public static var prefference = Prefference()
+  public var simulatedErrors = 3
+  
   public init() {}
   
-  public func request<D: Decodable, T: Scheduler>(
+  @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, macCatalyst 13.0, *)
+  public func request<D: Decodable, S: Scheduler>(
     with api: APIConfiguration,
     urlSession: URLSession = URLSession.shared,
     jsonDecoder: JSONDecoder = .ISO8601JSONDecoder,
-    scheduler: T,
-    class type: D.Type) -> AnyPublisher<D, ErrorManager> {
+    scheduler: S,
+    class type: D.Type) -> AnyPublisher<D, HTTPError> {
     let urlRequest = constructURL(with: api)
+
     return urlSession.dataTaskPublisher(for: urlRequest)
-      .tryCatch { error -> URLSession.DataTaskPublisher in
-        guard error.networkUnavailableReason == .constrained else {
-          throw ErrorManager.connectionError(error)
+      .assumeHTTP()
+      .print("retryLimit \(simulatedErrors)")
+      .retryLimit(when: { [unowned self] in
+        simulatedErrors -= 1
+        return simulatedErrors > 0
+      })
+      .responseData()
+      .decoding(D.self, decoder: jsonDecoder)
+      .catch { [unowned self] (error: HTTPError) -> AnyPublisher<D, HTTPError> in
+
+        if error.isRetriable {
+          print("Delaying for error...")
+          return Fail(error: error)
+              .delay(for: .seconds(1), scheduler: DispatchQueue.main)
+              .eraseToAnyPublisher()
+        } else if error.isTimeForRefreshToken {
+          Swift.print("Delaying for fetchRefreshTokenSend...")
+          let bool = api.fetchRefreshToken()
+          Swift.print(#line, "BOOL \(bool)" )
+          simulatedErrors = bool == true ?  0 : simulatedErrors
+
+          return Fail(error: error)
+              .delay(for: .seconds(2), scheduler: DispatchQueue.main)
+              .eraseToAnyPublisher()
+        } else {
+          Swift.print("without Delay no error ..")
+          return Fail(error: error)
+              .eraseToAnyPublisher()
         }
-        return urlSession.dataTaskPublisher(for: urlRequest)
       }
       .receive(on: scheduler)
-      .tryMap { data, response -> Data in
-        guard let httpResponse = response as? HTTPURLResponse else {
-          throw ErrorManager.invalidServerResponse
-        }
-        if !httpResponse.isSuccessful  {
-          throw ErrorManager.invalidServerResponseWithStatusCode(statusCode: httpResponse.statusCode)
-        }
-        return data
-      }
-      .decode(type: type.self, decoder: jsonDecoder).mapError { error in
-        if let error = error as? ErrorManager {
-          return error
-        } else {
-          return ErrorManager.decodingError(error)
-        }
-      }.eraseToAnyPublisher()
+      .eraseToAnyPublisher()
   }
   
+  @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, macCatalyst 13.0, *)
   @discardableResult
   public func request(
     with api: APIConfiguration,
@@ -92,8 +104,8 @@ public final class Pyramid {
   }
 }
 
-@available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, macCatalyst 13.0, *)
 extension Pyramid {
+  @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, macCatalyst 13.0, *)
   func constructURL(with api: APIConfiguration) -> URLRequest {
     switch api.method {
     case .get:
@@ -105,6 +117,7 @@ extension Pyramid {
     }
   }
   
+  @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, macCatalyst 13.0, *)
   func setupGetRequest(with api: APIConfiguration) -> URLRequest {
     let url = api.pathAppendedURL
     switch api.dataType {
@@ -121,6 +134,7 @@ extension Pyramid {
     }
   }
   
+  @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, macCatalyst 13.0, *)
   func setupGeneralRequest(with api: APIConfiguration) -> URLRequest {
     let url = api.pathAppendedURL
     var request = URLRequest(url: url)
@@ -145,6 +159,7 @@ extension Pyramid {
     }
   }
   
+  @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, macCatalyst 13.0, *)
   func setupDeleteRequest(with api: APIConfiguration) -> URLRequest {
     let url = api.pathAppendedURL
     switch api.dataType {
