@@ -8,7 +8,6 @@
 import Foundation
 import Pyramid
 
-
 struct AuthTokenResponse: Codable {
     var accessToken: String
     var refreshToken: String
@@ -23,6 +22,10 @@ enum RefreshTokenAPI {
 }
 
 extension RefreshTokenAPI: APIConfiguration, RequiresAuth {
+  func fetchRefreshTokenSend() -> Bool {
+    return false
+  }
+  
     var path: String {
         return pathPrefix + {
             switch self {

@@ -53,6 +53,7 @@
 		C3683C0B259A29C300B28AD2 /* TestRefreshTokenAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestRefreshTokenAPI.swift; sourceTree = "<group>"; };
 		C3683C10259A2A4000B28AD2 /* ExtensionRequiresAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionRequiresAuth.swift; sourceTree = "<group>"; };
 		C3683C21259A2AFD00B28AD2 /* TestRefreshAPIHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestRefreshAPIHandler.swift; sourceTree = "<group>"; };
+		C3683C59259B188300B28AD2 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = MyPlayground.playground; path = Sources/Playground/MyPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		C39BEE0B24F4FF8200C1A52B /* DataType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataType.swift; path = Sources/Pyramid/DataType.swift; sourceTree = "<group>"; };
 		C39BEE0C24F4FF8200C1A52B /* HTTPMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HTTPMethod.swift; path = Sources/Pyramid/HTTPMethod.swift; sourceTree = "<group>"; };
 		C39BEE0D24F4FF8300C1A52B /* URLRequest+setupRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "URLRequest+setupRequest.swift"; path = "Sources/Pyramid/URLRequest+setupRequest.swift"; sourceTree = "<group>"; };
@@ -105,6 +106,14 @@
 				C3683BDC25964A6600B28AD2 /* DataTaskPublisherTests.swift */,
 			);
 			path = DataTaskPublisherTests;
+			sourceTree = "<group>";
+		};
+		C3683C58259B183400B28AD2 /* Playground */ = {
+			isa = PBXGroup;
+			children = (
+				C3683C59259B188300B28AD2 /* MyPlayground.playground */,
+			);
+			name = Playground;
 			sourceTree = "<group>";
 		};
 		C3F6E64F24F4FE1A0050C502 /* Pyramid */ = {
@@ -175,6 +184,7 @@
 		OBJ_7 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				C3683C58259B183400B28AD2 /* Playground */,
 				C3F6E64F24F4FE1A0050C502 /* Pyramid */,
 			);
 			name = Sources;

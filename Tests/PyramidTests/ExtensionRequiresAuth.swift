@@ -32,7 +32,7 @@ public extension RequiresAuth {
   
   var authType: AuthType {
     return .bearer(
-      token: invalidAccessToken // validAccessToken
+      token: validAccessToken //invalidAccessToken
     )
   }
 }

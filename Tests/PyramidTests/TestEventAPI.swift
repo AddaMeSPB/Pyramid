@@ -8,7 +8,6 @@
 import Foundation
 @testable import Pyramid
 
-
 struct EventQueryItem: Codable {
   var page: String
   var pageNumber: String
@@ -28,6 +27,10 @@ enum TestEventAPI {
 
 
 extension TestEventAPI: APIConfiguration, RequiresAuth {
+  func fetchRefreshTokenSend() -> Bool {
+    return true
+  }
+  
 
   // APIOperation
 

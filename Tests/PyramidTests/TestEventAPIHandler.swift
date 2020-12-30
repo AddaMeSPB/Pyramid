@@ -44,7 +44,7 @@ extension TestEventAPIHandler {
   func eventListAfterRefreshToken() {
     
     let query = EventQueryItem(page: "page", pageNumber: "\(currentPage)", per: "per", perSize: "10", lat: "lat", long: "long", distance: "distance", latValue: "29.873706166262373", longValue: "60.26134045287572", distanceValue: "\(250)" )
-    
+
     eventSubscriber = provider.request(
       with: TestEventAPI.events(query),
       scheduler: RunLoop.main,

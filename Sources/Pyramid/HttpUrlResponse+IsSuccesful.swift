@@ -62,15 +62,16 @@ extension HTTPURLResponse {
   var isRetriable: Bool {
     return [408, 429].contains(statusCode)
   }
-    var isSuccessful: Bool {
-        return (200..<300).contains(statusCode)
-    }
   
-    public var isTimeForRefreshToken: Bool {
-      return [401, 403].contains(statusCode)
-    }
+  var isSuccessful: Bool {
+    return (200..<300).contains(statusCode)
+  }
+  
+  public var isTimeForRefreshToken: Bool {
+    return [401, 403].contains(statusCode)
+  }
+  
 }
-
 
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, macCatalyst 13.0, *)
 public extension Publisher where Output == (data: Data, response: URLResponse) {
@@ -138,10 +139,11 @@ extension Publisher where Output == (data: Data, response: HTTPURLResponse), Fai
   //    })
   //    .eraseToAnyPublisher()
   //  }
+  
   func retryLimit(when: @escaping () -> Bool) -> AnyPublisher<(data: Data, response: HTTPURLResponse), HTTPError> {
     map { (data, response) in
     
-      if response.isRetriable || response.isTimeForRefreshToken {
+      if response.isRetriable {
             Swift.print("Simulating rate limit HTTP Response...")
             let newResponse = HTTPURLResponse(
                 url: response.url!,
@@ -151,7 +153,7 @@ extension Publisher where Output == (data: Data, response: HTTPURLResponse), Fai
             )!
             return (data: data, response: newResponse)
         } else {
-            Swift.print("No more errors...")
+          Swift.print("No more errors...")
             return (data: data, response: response)
         }
     }
@@ -178,23 +180,5 @@ public extension Publisher where Output == Data, Failure == HTTPError {
       }
       .eraseToAnyPublisher()
   }
-  
-//  func refreshTokenIfNeeded(_ refreshToken: RefreshToken) -> AnyPublisher<Data, HTTPError> {
-//    // code goes here
-//    tryCatch({ error -> AnyPublisher<Data, HTTPError> in
-//      guard let apiError = error as? HTTPError, apiError.isTimeForRefreshToken else {
-//        throw error
-//      }
-//
-//      return refreshToken.refreshToken()
-//        .tryMap({ success -> AnyPublisher<Daa, HTTPError> in
-//          guard success else { throw error }
-//
-////          return fetchURL(url)
-//        })
-//        .switchToLatest()
-//        .eraseToAnyPublisher()
-//    })
-//    .eraseToAnyPublisher()
-//  }
+
 }

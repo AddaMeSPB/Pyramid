@@ -15,6 +15,7 @@ public protocol APIConfiguration: RequiresAuth {
     var pathPrefix: String { get }
     var path: String { get }
     var contentType: ContentType? { get }
+    func fetchRefreshToken() -> Bool
 }
 
 public protocol APIOperation {}
