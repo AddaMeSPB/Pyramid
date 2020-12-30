@@ -23,9 +23,7 @@
 /* Begin PBXBuildFile section */
 		C353CD8C2551483C00FBAD2C /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = C353CD8B2551483C00FBAD2C /* Response.swift */; };
 		C3683C63259C9E5E00B28AD2 /* EventResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3683C62259C9E5E00B28AD2 /* EventResponse.swift */; };
-		C3683C74259CA06D00B28AD2 /* Extension+HTTPURLResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3683C73259CA06D00B28AD2 /* Extension+HTTPURLResponse.swift */; };
 		C3683C82259CA0CB00B28AD2 /* Extension+Publisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3683C81259CA0CB00B28AD2 /* Extension+Publisher.swift */; };
-		C3683C87259CA10A00B28AD2 /* HTTPError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3683C6C259CA01200B28AD2 /* HTTPError.swift */; };
 		C3683CA1259CA33500B28AD2 /* ResponseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3683CA0259CA33500B28AD2 /* ResponseTests.swift */; };
 		C3683CAF259CA39600B28AD2 /* TestEventAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3683CAE259CA39600B28AD2 /* TestEventAPI.swift */; };
 		C3683CB5259CA3BD00B28AD2 /* TestEventAPIHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3683CB4259CA3BD00B28AD2 /* TestEventAPIHandler.swift */; };
@@ -33,6 +31,8 @@
 		C3683CC7259CA42600B28AD2 /* TestRefreshTokenAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3683CC6259CA42600B28AD2 /* TestRefreshTokenAPI.swift */; };
 		C3683CDE259CA57700B28AD2 /* DataTaskPublisherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3683CDD259CA57700B28AD2 /* DataTaskPublisherTests.swift */; };
 		C3683CE8259CA5F300B28AD2 /* ExtensionRequiresAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3683CE7259CA5F300B28AD2 /* ExtensionRequiresAuth.swift */; };
+		C3683D17259CC33F00B28AD2 /* HTTPError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3683C6C259CA01200B28AD2 /* HTTPError.swift */; };
+		C3683D1C259CC36200B28AD2 /* Extension+HTTPURLResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3683C73259CA06D00B28AD2 /* Extension+HTTPURLResponse.swift */; };
 		C39BEE1624F4FF8400C1A52B /* DataType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39BEE0B24F4FF8200C1A52B /* DataType.swift */; };
 		C39BEE1724F4FF8400C1A52B /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39BEE0C24F4FF8200C1A52B /* HTTPMethod.swift */; };
 		C39BEE1824F4FF8400C1A52B /* URLRequest+setupRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39BEE0D24F4FF8300C1A52B /* URLRequest+setupRequest.swift */; };
@@ -301,7 +301,8 @@
 			files = (
 				C39BEE1C24F4FF8400C1A52B /* JSONDecoder+Extension.swift in Sources */,
 				C39BEE1624F4FF8400C1A52B /* DataType.swift in Sources */,
-				C3683C87259CA10A00B28AD2 /* HTTPError.swift in Sources */,
+				C3683D1C259CC36200B28AD2 /* Extension+HTTPURLResponse.swift in Sources */,
+				C3683D17259CC33F00B28AD2 /* HTTPError.swift in Sources */,
 				C39BEE1F24F4FF8400C1A52B /* AuthType.swift in Sources */,
 				C353CD8C2551483C00FBAD2C /* Response.swift in Sources */,
 				C39BEE1D24F4FF8400C1A52B /* Pyramid.swift in Sources */,
@@ -312,7 +313,6 @@
 				C39BEE1A24F4FF8400C1A52B /* URL+GeneralURLQuery.swift in Sources */,
 				C39BEE1E24F4FF8400C1A52B /* ErrorManager.swift in Sources */,
 				C39BEE1724F4FF8400C1A52B /* HTTPMethod.swift in Sources */,
-				C3683C74259CA06D00B28AD2 /* Extension+HTTPURLResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
