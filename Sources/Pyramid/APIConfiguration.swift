@@ -12,7 +12,6 @@ public protocol APIConfiguration: RequiresAuth {
     var baseURL: URL { get }
     var method: HTTPMethod { get }
     var dataType: DataType { get }
-    var authType: AuthType { get }
     var pathPrefix: String { get }
     var path: String { get }
     var contentType: ContentType? { get }

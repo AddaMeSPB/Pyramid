@@ -6,38 +6,22 @@
 	objectVersion = 46;
 	objects = {
 
-/* Begin PBXAggregateTarget section */
-		"Pyramid::PyramidPackageTests::ProductTarget" /* PyramidPackageTests */ = {
-			isa = PBXAggregateTarget;
-			buildConfigurationList = OBJ_52 /* Build configuration list for PBXAggregateTarget "PyramidPackageTests" */;
-			buildPhases = (
-			);
-			dependencies = (
-				OBJ_55 /* PBXTargetDependency */,
-			);
-			name = PyramidPackageTests;
-			productName = PyramidPackageTests;
-		};
-/* End PBXAggregateTarget section */
-
 /* Begin PBXBuildFile section */
 		C353CD8C2551483C00FBAD2C /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = C353CD8B2551483C00FBAD2C /* Response.swift */; };
-		C3683C63259C9E5E00B28AD2 /* EventResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3683C62259C9E5E00B28AD2 /* EventResponse.swift */; };
-		C3683C82259CA0CB00B28AD2 /* Extension+Publisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3683C81259CA0CB00B28AD2 /* Extension+Publisher.swift */; };
-		C3683CA1259CA33500B28AD2 /* ResponseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3683CA0259CA33500B28AD2 /* ResponseTests.swift */; };
-		C3683CAF259CA39600B28AD2 /* TestRefreshTokenAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3683CAE259CA39600B28AD2 /* TestRefreshTokenAPI.swift */; };
-		C3683CB5259CA3BD00B28AD2 /* TestEventAPIHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3683CB4259CA3BD00B28AD2 /* TestEventAPIHandler.swift */; };
-		C3683CBB259CA3E100B28AD2 /* TestRefreshAPIHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3683CBA259CA3E100B28AD2 /* TestRefreshAPIHandler.swift */; };
-		C3683CC7259CA42600B28AD2 /* TestRefreshTokenAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3683CC6259CA42600B28AD2 /* TestRefreshTokenAPI.swift */; };
-		C3683CDE259CA57700B28AD2 /* DataTaskPublisherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3683CDD259CA57700B28AD2 /* DataTaskPublisherTests.swift */; };
-		C3683CE8259CA5F300B28AD2 /* ExtensionRequiresAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3683CE7259CA5F300B28AD2 /* ExtensionRequiresAuth.swift */; };
-		C3683D17259CC33F00B28AD2 /* HTTPError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3683C6C259CA01200B28AD2 /* HTTPError.swift */; };
-		C3683D1C259CC36200B28AD2 /* Extension+HTTPURLResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3683C73259CA06D00B28AD2 /* Extension+HTTPURLResponse.swift */; };
+		C3683B9F2596182A00B28AD2 /* ResponseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3683B9E2596182A00B28AD2 /* ResponseTests.swift */; };
+		C3683BC625963F9B00B28AD2 /* TestEventAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3683BC525963F9B00B28AD2 /* TestEventAPI.swift */; };
+		C3683BCE259644E000B28AD2 /* TestEventAPIHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3683BCD259644E000B28AD2 /* TestEventAPIHandler.swift */; };
+		C3683BD7259649B500B28AD2 /* EventResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3683BD6259649B500B28AD2 /* EventResponse.swift */; };
+		C3683BDD25964A6600B28AD2 /* DataTaskPublisherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3683BDC25964A6600B28AD2 /* DataTaskPublisherTests.swift */; };
+		C3683C0C259A29C300B28AD2 /* TestRefreshTokenAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3683C0B259A29C300B28AD2 /* TestRefreshTokenAPI.swift */; };
+		C3683C11259A2A4000B28AD2 /* ExtensionRequiresAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3683C10259A2A4000B28AD2 /* ExtensionRequiresAuth.swift */; };
+		C3683C23259A2AFD00B28AD2 /* TestRefreshAPIHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3683C21259A2AFD00B28AD2 /* TestRefreshAPIHandler.swift */; };
 		C39BEE1624F4FF8400C1A52B /* DataType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39BEE0B24F4FF8200C1A52B /* DataType.swift */; };
 		C39BEE1724F4FF8400C1A52B /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39BEE0C24F4FF8200C1A52B /* HTTPMethod.swift */; };
 		C39BEE1824F4FF8400C1A52B /* URLRequest+setupRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39BEE0D24F4FF8300C1A52B /* URLRequest+setupRequest.swift */; };
 		C39BEE1924F4FF8400C1A52B /* APIConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39BEE0E24F4FF8300C1A52B /* APIConfiguration.swift */; };
 		C39BEE1A24F4FF8400C1A52B /* URL+GeneralURLQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39BEE0F24F4FF8300C1A52B /* URL+GeneralURLQuery.swift */; };
+		C39BEE1B24F4FF8400C1A52B /* HttpUrlResponse+IsSuccesful.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39BEE1024F4FF8300C1A52B /* HttpUrlResponse+IsSuccesful.swift */; };
 		C39BEE1C24F4FF8400C1A52B /* JSONDecoder+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39BEE1124F4FF8300C1A52B /* JSONDecoder+Extension.swift */; };
 		C39BEE1D24F4FF8400C1A52B /* Pyramid.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39BEE1224F4FF8300C1A52B /* Pyramid.swift */; };
 		C39BEE1E24F4FF8400C1A52B /* ErrorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39BEE1324F4FF8300C1A52B /* ErrorManager.swift */; };
@@ -57,34 +41,26 @@
 			remoteGlobalIDString = "Pyramid::Pyramid";
 			remoteInfo = Pyramid;
 		};
-		C3F6E64E24F4FC380050C502 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = OBJ_1 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = "Pyramid::PyramidTests";
-			remoteInfo = PyramidTests;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		C353CD8B2551483C00FBAD2C /* Response.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Response.swift; path = Sources/Pyramid/Response.swift; sourceTree = "<group>"; };
-		C3683C62259C9E5E00B28AD2 /* EventResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EventResponse.swift; path = ../Tests/Models/EventResponse.swift; sourceTree = "<group>"; };
-		C3683C6C259CA01200B28AD2 /* HTTPError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HTTPError.swift; path = Sources/Pyramid/HTTPError.swift; sourceTree = "<group>"; };
-		C3683C73259CA06D00B28AD2 /* Extension+HTTPURLResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+HTTPURLResponse.swift"; sourceTree = "<group>"; };
-		C3683C81259CA0CB00B28AD2 /* Extension+Publisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Publisher.swift"; sourceTree = "<group>"; };
-		C3683CA0259CA33500B28AD2 /* ResponseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ResponseTests.swift; path = Tests/ResponseTests.swift; sourceTree = "<group>"; };
-		C3683CAE259CA39600B28AD2 /* TestRefreshTokenAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TestRefreshTokenAPI.swift; path = Tests/TestRefreshTokenAPI.swift; sourceTree = "<group>"; };
-		C3683CB4259CA3BD00B28AD2 /* TestEventAPIHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TestEventAPIHandler.swift; path = Tests/TestEventAPIHandler.swift; sourceTree = "<group>"; };
-		C3683CBA259CA3E100B28AD2 /* TestRefreshAPIHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TestRefreshAPIHandler.swift; path = Tests/TestRefreshAPIHandler.swift; sourceTree = "<group>"; };
-		C3683CC6259CA42600B28AD2 /* TestRefreshTokenAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TestRefreshTokenAPI.swift; path = Tests/TestRefreshTokenAPI.swift; sourceTree = "<group>"; };
-		C3683CDD259CA57700B28AD2 /* DataTaskPublisherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTaskPublisherTests.swift; sourceTree = "<group>"; };
-		C3683CE7259CA5F300B28AD2 /* ExtensionRequiresAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ExtensionRequiresAuth.swift; path = Sources/Pyramid/ExtensionRequiresAuth.swift; sourceTree = "<group>"; };
+		C3683B9E2596182A00B28AD2 /* ResponseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseTests.swift; sourceTree = "<group>"; };
+		C3683BC525963F9B00B28AD2 /* TestEventAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestEventAPI.swift; sourceTree = "<group>"; };
+		C3683BCD259644E000B28AD2 /* TestEventAPIHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestEventAPIHandler.swift; sourceTree = "<group>"; };
+		C3683BD6259649B500B28AD2 /* EventResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventResponse.swift; sourceTree = "<group>"; };
+		C3683BDC25964A6600B28AD2 /* DataTaskPublisherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTaskPublisherTests.swift; sourceTree = "<group>"; };
+		C3683C0B259A29C300B28AD2 /* TestRefreshTokenAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestRefreshTokenAPI.swift; sourceTree = "<group>"; };
+		C3683C10259A2A4000B28AD2 /* ExtensionRequiresAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionRequiresAuth.swift; sourceTree = "<group>"; };
+		C3683C21259A2AFD00B28AD2 /* TestRefreshAPIHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestRefreshAPIHandler.swift; sourceTree = "<group>"; };
+		C3683C59259B188300B28AD2 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = MyPlayground.playground; path = Sources/Playground/MyPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		C39BEE0B24F4FF8200C1A52B /* DataType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataType.swift; path = Sources/Pyramid/DataType.swift; sourceTree = "<group>"; };
 		C39BEE0C24F4FF8200C1A52B /* HTTPMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HTTPMethod.swift; path = Sources/Pyramid/HTTPMethod.swift; sourceTree = "<group>"; };
 		C39BEE0D24F4FF8300C1A52B /* URLRequest+setupRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "URLRequest+setupRequest.swift"; path = "Sources/Pyramid/URLRequest+setupRequest.swift"; sourceTree = "<group>"; };
 		C39BEE0E24F4FF8300C1A52B /* APIConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = APIConfiguration.swift; path = Sources/Pyramid/APIConfiguration.swift; sourceTree = "<group>"; };
 		C39BEE0F24F4FF8300C1A52B /* URL+GeneralURLQuery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "URL+GeneralURLQuery.swift"; path = "Sources/Pyramid/URL+GeneralURLQuery.swift"; sourceTree = "<group>"; };
-		C39BEE1124F4FF8300C1A52B /* JSONDecoder+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "JSONDecoder+Extension.swift"; sourceTree = "<group>"; };
+		C39BEE1024F4FF8300C1A52B /* HttpUrlResponse+IsSuccesful.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "HttpUrlResponse+IsSuccesful.swift"; path = "Sources/Pyramid/HttpUrlResponse+IsSuccesful.swift"; sourceTree = "<group>"; };
+		C39BEE1124F4FF8300C1A52B /* JSONDecoder+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "JSONDecoder+Extension.swift"; path = "Sources/Pyramid/JSONDecoder+Extension.swift"; sourceTree = "<group>"; };
 		C39BEE1224F4FF8300C1A52B /* Pyramid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Pyramid.swift; path = Sources/Pyramid/Pyramid.swift; sourceTree = "<group>"; };
 		C39BEE1324F4FF8300C1A52B /* ErrorManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ErrorManager.swift; path = Sources/Pyramid/ErrorManager.swift; sourceTree = "<group>"; };
 		C39BEE1424F4FF8300C1A52B /* AuthType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AuthType.swift; path = Sources/Pyramid/AuthType.swift; sourceTree = "<group>"; };
@@ -116,36 +92,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		C3683C61259C9E2B00B28AD2 /* Models */ = {
+		C3683BD52596499F00B28AD2 /* Response */ = {
 			isa = PBXGroup;
 			children = (
-				C3683C62259C9E5E00B28AD2 /* EventResponse.swift */,
+				C3683BD6259649B500B28AD2 /* EventResponse.swift */,
 			);
-			path = Models;
+			path = Response;
 			sourceTree = "<group>";
 		};
-		C3683CDC259CA56500B28AD2 /* DataTaskPublisherTests */ = {
+		C3683BDB25964A4700B28AD2 /* DataTaskPublisherTests */ = {
 			isa = PBXGroup;
 			children = (
-				C3683CDD259CA57700B28AD2 /* DataTaskPublisherTests.swift */,
+				C3683BDC25964A6600B28AD2 /* DataTaskPublisherTests.swift */,
 			);
 			path = DataTaskPublisherTests;
 			sourceTree = "<group>";
 		};
-		C3683D3B259CD1FC00B28AD2 /* Extensions */ = {
+		C3683C58259B183400B28AD2 /* Playground */ = {
 			isa = PBXGroup;
 			children = (
-				C39BEE1124F4FF8300C1A52B /* JSONDecoder+Extension.swift */,
-				C3683C73259CA06D00B28AD2 /* Extension+HTTPURLResponse.swift */,
-				C3683C81259CA0CB00B28AD2 /* Extension+Publisher.swift */,
+				C3683C59259B188300B28AD2 /* MyPlayground.playground */,
 			);
-			path = Extensions;
+			name = Playground;
 			sourceTree = "<group>";
 		};
 		C3F6E64F24F4FE1A0050C502 /* Pyramid */ = {
 			isa = PBXGroup;
 			children = (
-				C3683D3B259CD1FC00B28AD2 /* Extensions */,
 				C353CD8B2551483C00FBAD2C /* Response.swift */,
 				C39BEE0E24F4FF8300C1A52B /* APIConfiguration.swift */,
 				C39BEE1424F4FF8300C1A52B /* AuthType.swift */,
@@ -153,10 +126,11 @@
 				C39BEE0B24F4FF8200C1A52B /* DataType.swift */,
 				C39BEE1324F4FF8300C1A52B /* ErrorManager.swift */,
 				C39BEE0C24F4FF8200C1A52B /* HTTPMethod.swift */,
+				C39BEE1024F4FF8300C1A52B /* HttpUrlResponse+IsSuccesful.swift */,
+				C39BEE1124F4FF8300C1A52B /* JSONDecoder+Extension.swift */,
 				C39BEE1224F4FF8300C1A52B /* Pyramid.swift */,
 				C39BEE0F24F4FF8300C1A52B /* URL+GeneralURLQuery.swift */,
 				C39BEE0D24F4FF8300C1A52B /* URLRequest+setupRequest.swift */,
-				C3683C6C259CA01200B28AD2 /* HTTPError.swift */,
 			);
 			name = Pyramid;
 			sourceTree = "<group>";
@@ -164,15 +138,9 @@
 		OBJ_20 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				C3683CDC259CA56500B28AD2 /* DataTaskPublisherTests */,
-				C3683CA0259CA33500B28AD2 /* ResponseTests.swift */,
-				C3683C61259C9E2B00B28AD2 /* Models */,
+				C3683BDB25964A4700B28AD2 /* DataTaskPublisherTests */,
+				C3683BD52596499F00B28AD2 /* Response */,
 				OBJ_21 /* PyramidTests */,
-				C3683CAE259CA39600B28AD2 /* TestRefreshTokenAPI.swift */,
-				C3683CB4259CA3BD00B28AD2 /* TestEventAPIHandler.swift */,
-				C3683CBA259CA3E100B28AD2 /* TestRefreshAPIHandler.swift */,
-				C3683CC6259CA42600B28AD2 /* TestRefreshTokenAPI.swift */,
-				C3683CE7259CA5F300B28AD2 /* ExtensionRequiresAuth.swift */,
 			);
 			name = Tests;
 			sourceTree = SOURCE_ROOT;
@@ -181,7 +149,13 @@
 			isa = PBXGroup;
 			children = (
 				OBJ_22 /* PyramidTests.swift */,
+				C3683B9E2596182A00B28AD2 /* ResponseTests.swift */,
 				OBJ_23 /* XCTestManifests.swift */,
+				C3683BC525963F9B00B28AD2 /* TestEventAPI.swift */,
+				C3683C10259A2A4000B28AD2 /* ExtensionRequiresAuth.swift */,
+				C3683C0B259A29C300B28AD2 /* TestRefreshTokenAPI.swift */,
+				C3683BCD259644E000B28AD2 /* TestEventAPIHandler.swift */,
+				C3683C21259A2AFD00B28AD2 /* TestRefreshAPIHandler.swift */,
 			);
 			name = PyramidTests;
 			path = Tests/PyramidTests;
@@ -210,6 +184,7 @@
 		OBJ_7 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				C3683C58259B183400B28AD2 /* Playground */,
 				C3F6E64F24F4FE1A0050C502 /* Pyramid */,
 			);
 			name = Sources;
@@ -280,6 +255,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = OBJ_5;
 			productRefGroup = OBJ_24 /* Products */;
@@ -288,7 +264,6 @@
 			targets = (
 				"Pyramid::Pyramid" /* Pyramid */,
 				"Pyramid::SwiftPMPackageDescription" /* PyramidPackageDescription */,
-				"Pyramid::PyramidPackageTests::ProductTarget" /* PyramidPackageTests */,
 				"Pyramid::PyramidTests" /* PyramidTests */,
 			);
 		};
@@ -301,15 +276,13 @@
 			files = (
 				C39BEE1C24F4FF8400C1A52B /* JSONDecoder+Extension.swift in Sources */,
 				C39BEE1624F4FF8400C1A52B /* DataType.swift in Sources */,
-				C3683D1C259CC36200B28AD2 /* Extension+HTTPURLResponse.swift in Sources */,
-				C3683D17259CC33F00B28AD2 /* HTTPError.swift in Sources */,
 				C39BEE1F24F4FF8400C1A52B /* AuthType.swift in Sources */,
+				C39BEE1B24F4FF8400C1A52B /* HttpUrlResponse+IsSuccesful.swift in Sources */,
 				C353CD8C2551483C00FBAD2C /* Response.swift in Sources */,
 				C39BEE1D24F4FF8400C1A52B /* Pyramid.swift in Sources */,
 				C39BEE1824F4FF8400C1A52B /* URLRequest+setupRequest.swift in Sources */,
 				C39BEE1924F4FF8400C1A52B /* APIConfiguration.swift in Sources */,
 				C39BEE2024F4FF8400C1A52B /* ContentType.swift in Sources */,
-				C3683C82259CA0CB00B28AD2 /* Extension+Publisher.swift in Sources */,
 				C39BEE1A24F4FF8400C1A52B /* URL+GeneralURLQuery.swift in Sources */,
 				C39BEE1E24F4FF8400C1A52B /* ErrorManager.swift in Sources */,
 				C39BEE1724F4FF8400C1A52B /* HTTPMethod.swift in Sources */,
@@ -328,27 +301,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
-				C3683CAF259CA39600B28AD2 /* TestRefreshTokenAPI.swift in Sources */,
-				C3683CDE259CA57700B28AD2 /* DataTaskPublisherTests.swift in Sources */,
-				C3683C63259C9E5E00B28AD2 /* EventResponse.swift in Sources */,
-				C3683CB5259CA3BD00B28AD2 /* TestEventAPIHandler.swift in Sources */,
-				C3683CBB259CA3E100B28AD2 /* TestRefreshAPIHandler.swift in Sources */,
-				C3683CA1259CA33500B28AD2 /* ResponseTests.swift in Sources */,
+				C3683BC625963F9B00B28AD2 /* TestEventAPI.swift in Sources */,
+				C3683BCE259644E000B28AD2 /* TestEventAPIHandler.swift in Sources */,
 				OBJ_61 /* PyramidTests.swift in Sources */,
-				C3683CC7259CA42600B28AD2 /* TestRefreshTokenAPI.swift in Sources */,
+				C3683BDD25964A6600B28AD2 /* DataTaskPublisherTests.swift in Sources */,
+				C3683C11259A2A4000B28AD2 /* ExtensionRequiresAuth.swift in Sources */,
+				C3683BD7259649B500B28AD2 /* EventResponse.swift in Sources */,
+				C3683B9F2596182A00B28AD2 /* ResponseTests.swift in Sources */,
+				C3683C23259A2AFD00B28AD2 /* TestRefreshAPIHandler.swift in Sources */,
+				C3683C0C259A29C300B28AD2 /* TestRefreshTokenAPI.swift in Sources */,
 				OBJ_62 /* XCTestManifests.swift in Sources */,
-				C3683CE8259CA5F300B28AD2 /* ExtensionRequiresAuth.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		OBJ_55 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = "Pyramid::PyramidTests" /* PyramidTests */;
-			targetProxy = C3F6E64E24F4FC380050C502 /* PBXContainerItemProxy */;
-		};
 		OBJ_65 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "Pyramid::Pyramid" /* Pyramid */;
@@ -424,7 +392,7 @@
 				INFOPLIST_FILE = Pyramid.xcodeproj/Pyramid_Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MARKETING_VERSION = 0.1.7;
 				OTHER_CFLAGS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
@@ -453,7 +421,7 @@
 				INFOPLIST_FILE = Pyramid.xcodeproj/Pyramid_Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MARKETING_VERSION = 0.1.7;
 				OTHER_CFLAGS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
@@ -539,18 +507,6 @@
 			};
 			name = Release;
 		};
-		OBJ_53 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-			};
-			name = Debug;
-		};
-		OBJ_54 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-			};
-			name = Release;
-		};
 		OBJ_58 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -564,7 +520,7 @@
 				INFOPLIST_FILE = Pyramid.xcodeproj/PyramidTests_Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @loader_path/../Frameworks @loader_path/Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				OTHER_CFLAGS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
 				OTHER_SWIFT_FLAGS = "$(inherited)";
@@ -589,7 +545,7 @@
 				INFOPLIST_FILE = Pyramid.xcodeproj/PyramidTests_Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @loader_path/../Frameworks @loader_path/Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				OTHER_CFLAGS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
 				OTHER_SWIFT_FLAGS = "$(inherited)";
@@ -627,15 +583,6 @@
 			buildConfigurations = (
 				OBJ_47 /* Debug */,
 				OBJ_48 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		OBJ_52 /* Build configuration list for PBXAggregateTarget "PyramidPackageTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				OBJ_53 /* Debug */,
-				OBJ_54 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -1,6 +1,7 @@
 import XCTest
-@testable import Pyramid
+@testable import Pyramid 
 
+@available(iOS 13.0, *)
 final class PyramidTests: XCTestCase {
     func testExample() {
         // This is an example of a functional test case.
