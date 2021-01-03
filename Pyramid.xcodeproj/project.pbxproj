@@ -19,6 +19,7 @@
 		C383C98725A1B803009583BE /* Extension+Publisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = C383C98425A1B803009583BE /* Extension+Publisher.swift */; };
 		C383C98825A1B803009583BE /* Extension+HTTPURLResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C383C98525A1B803009583BE /* Extension+HTTPURLResponse.swift */; };
 		C383C98925A1B803009583BE /* JSONDecoder+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C383C98625A1B803009583BE /* JSONDecoder+Extension.swift */; };
+		C383C9C125A1BBCD009583BE /* HTTPError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C383C9C025A1BBCD009583BE /* HTTPError.swift */; };
 		C39BEE1624F4FF8400C1A52B /* DataType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39BEE0B24F4FF8200C1A52B /* DataType.swift */; };
 		C39BEE1724F4FF8400C1A52B /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39BEE0C24F4FF8200C1A52B /* HTTPMethod.swift */; };
 		C39BEE1824F4FF8400C1A52B /* URLRequest+setupRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39BEE0D24F4FF8300C1A52B /* URLRequest+setupRequest.swift */; };
@@ -55,10 +56,11 @@
 		C3683C10259A2A4000B28AD2 /* ExtensionRequiresAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionRequiresAuth.swift; sourceTree = "<group>"; };
 		C3683C21259A2AFD00B28AD2 /* TestRefreshAPIHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestRefreshAPIHandler.swift; sourceTree = "<group>"; };
 		C3683C59259B188300B28AD2 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = MyPlayground.playground; path = Sources/Playground/MyPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
-		C383C97A25A1B6F1009583BE /* EventResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventResponse.swift; path = ../Tests/Models/EventResponse.swift; sourceTree = "<group>"; };
+		C383C97A25A1B6F1009583BE /* EventResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventResponse.swift; sourceTree = "<group>"; };
 		C383C98425A1B803009583BE /* Extension+Publisher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extension+Publisher.swift"; sourceTree = "<group>"; };
 		C383C98525A1B803009583BE /* Extension+HTTPURLResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extension+HTTPURLResponse.swift"; sourceTree = "<group>"; };
 		C383C98625A1B803009583BE /* JSONDecoder+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "JSONDecoder+Extension.swift"; sourceTree = "<group>"; };
+		C383C9C025A1BBCD009583BE /* HTTPError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HTTPError.swift; path = Sources/Pyramid/HTTPError.swift; sourceTree = SOURCE_ROOT; };
 		C39BEE0B24F4FF8200C1A52B /* DataType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataType.swift; path = ../DataType.swift; sourceTree = "<group>"; };
 		C39BEE0C24F4FF8200C1A52B /* HTTPMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HTTPMethod.swift; path = ../HTTPMethod.swift; sourceTree = "<group>"; };
 		C39BEE0D24F4FF8300C1A52B /* URLRequest+setupRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "URLRequest+setupRequest.swift"; path = "../URLRequest+setupRequest.swift"; sourceTree = "<group>"; };
@@ -118,7 +120,8 @@
 			children = (
 				C383C97A25A1B6F1009583BE /* EventResponse.swift */,
 			);
-			path = Models;
+			name = Models;
+			path = Tests/Models;
 			sourceTree = "<group>";
 		};
 		C383C98325A1B803009583BE /* Extensions */ = {
@@ -139,6 +142,7 @@
 				C39BEE0E24F4FF8300C1A52B /* APIConfiguration.swift */,
 				C39BEE1424F4FF8300C1A52B /* AuthType.swift */,
 				C39BEE1524F4FF8400C1A52B /* ContentType.swift */,
+				C383C9C025A1BBCD009583BE /* HTTPError.swift */,
 				C39BEE0B24F4FF8200C1A52B /* DataType.swift */,
 				C39BEE1324F4FF8300C1A52B /* ErrorManager.swift */,
 				C39BEE0C24F4FF8200C1A52B /* HTTPMethod.swift */,
@@ -303,6 +307,7 @@
 				C39BEE2024F4FF8400C1A52B /* ContentType.swift in Sources */,
 				C39BEE1A24F4FF8400C1A52B /* URL+GeneralURLQuery.swift in Sources */,
 				C39BEE1E24F4FF8400C1A52B /* ErrorManager.swift in Sources */,
+				C383C9C125A1BBCD009583BE /* HTTPError.swift in Sources */,
 				C39BEE1724F4FF8400C1A52B /* HTTPMethod.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
