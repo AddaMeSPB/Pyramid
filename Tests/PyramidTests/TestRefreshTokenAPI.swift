@@ -22,7 +22,8 @@ enum RefreshTokenAPI {
 }
 
 extension RefreshTokenAPI: APIConfiguration, RequiresAuth {
-  func fetchRefreshTokenSend() -> Bool {
+
+  func fetchRefreshToken() -> Bool {
     return false
   }
   

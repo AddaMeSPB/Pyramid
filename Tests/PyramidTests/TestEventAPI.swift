@@ -27,11 +27,10 @@ enum TestEventAPI {
 
 
 extension TestEventAPI: APIConfiguration, RequiresAuth {
-  func fetchRefreshTokenSend() -> Bool {
+  func fetchRefreshToken() -> Bool {
     return true
   }
   
-
   // APIOperation
 
   var baseURL: URL { URL(string: "http://192.168.1.20:8080/v1")! }
